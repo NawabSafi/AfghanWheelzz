@@ -1,0 +1,31 @@
+﻿@model AfghanWheelzz.ViewModels.LoginViewModel
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_LoginRegisterPartial.cshtml";
+}
+
+<div class="container">
+    <h1 class="text-center mb-4 text-dark">Login</h1>
+
+    <form asp-action="Login" method="post">
+        <div class="form-group">
+            <label asp-for="Email" class="text-dark">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password" class="text-dark">Password</label>
+            <input asp-for="Password" type="password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group form-check">
+            <input asp-for="RememberMe" class="form-check-input" />
+            <label class="form-check-label text-dark" asp-for="RememberMe">Remember me</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-lg">Login</button>
+    </form>
+</div>

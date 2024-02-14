@@ -1,0 +1,45 @@
+﻿@model AfghanWheelzz.Models.UserModels.ApplicationUser
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>User Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/UserIndex.css" />
+ 
+</head>
+<body>
+    <div class="container">
+        <div class="user-details">
+            <h2>User Details</h2>
+            <dl>
+                <dt>First Name:</dt>
+                <dd>@Model.FirstName</dd>
+
+                <dt>Last Name:</dt>
+                <dd>@Model.LastName</dd>
+
+                <dt>Email:</dt>
+                <dd>@Model.Email</dd>
+
+                <dt>Phone Number:</dt>
+                <dd>@Model.PhoneNumber</dd>
+
+                <dt>Address:</dt>
+                <dd>@Model.Address</dd>
+            </dl>
+        </div>
+        <div class="profile-picture">
+            @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
+            {
+                <img src="@Model.ProfilePicturePath" alt="Profile Picture" />
+            }
+            else
+            {
+                <p>No profile picture available</p>
+            }
+        </div>
+    </div>
+</body>
+</html>

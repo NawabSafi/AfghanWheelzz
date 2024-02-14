@@ -1,0 +1,23 @@
+﻿@using AfghanWheelzz.Models.UserModels
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    var user = await UserManager.GetUserAsync(User);
+    <text>
+        <span class="text-light">Welcome, <a href="@Url.Action("Index", "Account")" class="text-warning">@user.LastName</a>! |</span>
+
+        <form asp-controller="Account" asp-action="Logout" method="post" class="form-inline">
+            <button type="submit" class="btn btn-link text-warning"><i class="fas fa-sign-out-alt"></i> Logout</button>
+        </form>
+    </text>
+}
+else
+{
+    <text>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg"><i class="fas fa-sign-in-alt"></i> Login</a> |
+        <a asp-controller="Account" asp-action="Register" class="btn btn-secondary btn-lg"><i class="fas fa-user-plus"></i> Register</a>
+    </text>
+}

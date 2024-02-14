@@ -1,0 +1,56 @@
+﻿@model AfghanWheelzz.ViewModels.RegisterViewModel
+
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_LoginRegisterPartial.cshtml";
+}
+
+<div class="container">
+    <h1 class="text-center mb-4 text-dark">Register</h1>
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <form asp-action="Register" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="FirstName" class="text-dark">First Name</label>
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LastName" class="text-dark">Last Name</label>
+            <input asp-for="LastName" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Email" class="text-dark">Email</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="PhoneNumber" class="text-dark">Phone Number</label>
+            <input asp-for="PhoneNumber" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Address" class="text-dark">Address</label>
+            <input asp-for="Address" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Password" class="text-dark">Password</label>
+            <input asp-for="Password" type="password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ConfirmPassword" class="text-dark">Confirm Password</label>
+            <input asp-for="ConfirmPassword" type="password" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ProfilePicture" class="text-dark">Profile Picture</label>
+            <input type="file" class="form-control" id="ProfilePicture" name="ProfilePicture">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Register</button>
+    </form>
+</div>

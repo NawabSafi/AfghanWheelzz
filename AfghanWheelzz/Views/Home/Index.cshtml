@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Listings</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="~/css/HomeIndex.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1>Explore Our Car Listings</h1>
+        <div class="input-group mb-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search by make, model, or price">
+            <div class="input-group-append">
+                <button class="btn btn-primary" type="button" onclick="searchCars()">Search</button>
+            </div>
+        </div>
+
+        <div class="row">
+            @foreach (var car in Model)
+            {
+                var imagePath = car.ImagePath.Replace("\\", "/");
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow">
+                        <div class="position-relative overflow-hidden">
+                            <img src="~/@imagePath" class="card-img" alt="Car Image">
+                            <span class="badge">New Arrival</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">@($"{car.Make} {car.Model}")</h5>
+                            <p class="card-text">
+                                <strong>Price:</strong>  @car.Price <strong>(AFN)</strong><br />
+                                <strong>Mileage:</strong> @car.Mileage <strong>(MPG)</strong> <br />
+                                <strong>Location:</strong> @ViewBag.Location[car.Id].City <i class="fas fa-map-marker-alt"></i> <br /> <!-- Location icon -->
+                            </p>
+                            <div class="text-center">
+                                <a asp-controller="Home" asp-action="Details" asp-route-id="@car.Id" class="btn btn-outline-primary detail-btn">Detail</a>
+                                <button onclick="openModal('@car.Id')" class="btn btn-outline-info">Seller Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="userDetails">
+                <!-- User details will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/UserDetailButton.js"></script>
+    <script src="~/js/searchCars.js"></script>
+    <script src="~/js/DetailButton.js"></script>
+</body>
+</html>

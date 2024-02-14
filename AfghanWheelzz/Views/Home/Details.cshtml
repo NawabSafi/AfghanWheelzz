@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+}
+
+<div class="container">
+    <h1 class="text-center mb-4">Car Details</h1>
+
+    <div class="row align-items-center">
+        <!-- Car details -->
+        <div class="col-md-6">
+            <div class="card car-details p-4">
+                <h4 class="text-primary">@Model.Make @Model.Model</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4"><i class="fas fa-map-marker-alt mr-2"></i>Location</dt> <!-- Location icon -->
+                    <dd class="col-sm-8">@ViewBag.Location.City</dd>
+
+                    <dt class="col-sm-4"><i class="far fa-calendar-alt mr-2"></i>Published Date</dt> <!-- Published date icon -->
+                    <dd class="col-sm-8">@Model.DatePublished</dd>
+
+                    <dt class="col-sm-4"><i class="fas fa-registered mr-2"></i>Registration</dt>
+                    <dd class="col-sm-8">@ViewBag.Registration.RegistrationName</dd>
+
+                    <dt class="col-sm-4"><i class="fas fa-car mr-2"></i>Category</dt>
+                    <dd class="col-sm-8">@ViewBag.Category.CategoryName</dd>
+
+                    <dt class="col-sm-4"><i class="fas fa-calendar-alt mr-2"></i>Year</dt>
+                    <dd class="col-sm-8">@Model.Year</dd>
+
+                    <dt class="col-sm-4"><i class="fas fa-dollar-sign mr-2"></i>Price</dt>
+                    <dd class="col-sm-8">@Model.Price (AFN)</dd>
+
+                    <dt class="col-sm-4"><i class="fas fa-road mr-2"></i>Mileage</dt>
+                    <dd class="col-sm-8">@Model.Mileage (MPG)</dd>
+
+                    <dt class="col-sm-4"><i class="fas fa-align-left mr-2"></i>Description</dt>
+                    <dd class="col-sm-8">@Model.Description</dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- Car image -->
+        <div class="col-md-6">
+            <div class="card">
+                <img src="~/@Model.ImagePath" class="card-img-top car-image rounded border" alt="Car Image" />
+            </div>
+        </div>
+    </div>
+
+    <div class="action-buttons mt-4">
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+</div>
