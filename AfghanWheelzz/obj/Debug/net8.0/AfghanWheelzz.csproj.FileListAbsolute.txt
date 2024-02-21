@@ -129,7 +129,6 @@ C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\staticwe
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\scopedcss\bundle\AfghanWheelzz.styles.css
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\scopedcss\projectbundle\AfghanWheelzz.bundle.scp.css
-C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.csproj.CopyComplete
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.dll
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\refint\AfghanWheelzz.dll
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.pdb
@@ -264,3 +263,5 @@ C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\runtimes
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.sourcelink.json
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.csproj.CopyComplete

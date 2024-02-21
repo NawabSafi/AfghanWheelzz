@@ -47,7 +47,55 @@
         </div>
     </div>
 
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card user-details p-4">
+                <h4 class="text-primary">Seller Details</h4>
+                <hr />
+                <dl class="row">
+                    <dt class="col-sm-4">Name</dt>
+                    <dd class="col-sm-8">@ViewBag.User.FirstName @ViewBag.User.LastName</dd>
+
+                    <dt class="col-sm-4">Email</dt>
+                    <dd class="col-sm-8">@ViewBag.User.Email</dd>
+
+                    <dt class="col-sm-4">Phone Number</dt>
+                    <dd class="col-sm-8">
+                        <span id="phoneNumber"></span> <!-- Empty span element for displaying phone number -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @(ViewBag.User.PhoneNumber.Substring(0, 4) + "***" + ViewBag.User.PhoneNumber.Substring(ViewBag.User.PhoneNumber.Length - 3))
+
+                            <button class="btn btn-link btn-sm" onclick="showPhoneNumber()">Show Number</button>
+                        }
+                        else
+                        {
+                            <a class="btn btn-link btn-sm" onclick="confirmLogin()">Show Number</a>
+                        }
+                    </dd>
+
+                </dl>
+            </div>
+        </div>
+    </div>
+
     <div class="action-buttons mt-4">
         <a asp-action="Index" class="btn btn-primary">Back to List</a>
     </div>
 </div>
+
+@* JavaScript to toggle phone number visibility *@
+<script>
+    function confirmLogin() {
+        var confirmed = confirm("Login to see the phone number?");
+        if (confirmed) {
+            window.location.href = "/Account/Login";
+        }
+    }
+
+    function showPhoneNumber() {
+        var phoneNumberElement = document.getElementById("phoneNumber");
+        phoneNumberElement.textContent = "@ViewBag.User.PhoneNumber";
+    }
+</script>
+

@@ -110,6 +110,8 @@ namespace AfghanWheelzz.Controllers.Authentication
             return View();
         }
 
+
+    
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -139,6 +141,49 @@ namespace AfghanWheelzz.Controllers.Authentication
             // If we reach here, something went wrong, redisplay the form
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize] // Restrict access to authenticated users
+        public async Task<IActionResult> UpdateProfile(ApplicationUser model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Index", model); // Return the updated model to the view with validation errors
+            }
+
+            var user = await _userManager.GetUserAsync(User);
+
+            if (user == null)
+            {
+                return NotFound(); // User not found
+            }
+
+            // Update user details
+            user.FirstName = model.FirstName;
+            user.LastName = model.LastName;
+            user.Email = model.Email;
+            user.PhoneNumber = model.PhoneNumber;
+            user.Address = model.Address; // Add this line if you also want to update the address
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (result.Succeeded)
+            {
+                // Redirect back to the profile details page with the updated user
+                return RedirectToAction("Index", user);
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(string.Empty, error.Description);
+                }
+
+                // Return the updated model to the view with any errors
+                return View("Index", model);
+            }
+        }
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Logout()

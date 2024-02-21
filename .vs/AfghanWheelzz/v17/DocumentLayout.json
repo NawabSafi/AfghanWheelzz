@@ -1,0 +1,459 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\afghanwheelzz.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\afghanwheelzz.csproj||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Safi\\source\\repos\\AfghanWheelz\\Views\\Home\\Index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\controllers\\authentication\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\controllers\\authentication\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\shared\\_loginpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\account\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\wwwroot\\css\\userindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\wwwroot\\css\\userindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\wwwroot\\css\\mainlayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\wwwroot\\css\\mainlayout.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\wwwroot\\css\\homeindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\wwwroot\\css\\homeindex.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\wwwroot\\css\\carcreate.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\wwwroot\\css\\carcreate.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\cars\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\cars\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\home\\about.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\home\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\home\\contact.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\views\\cars\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\views\\cars\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\models\\usermodels\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\models\\usermodels\\applicationuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\viewmodels\\registerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Safi\\source\\repos\\AfghanWheelz\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|c:\\users\\safi\\source\\repos\\afghanwheelzz\\afghanwheelzz\\migrations\\20240214161842_profilepicture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{10604CDD-B03A-4529-945C-60307DEC7111}|AfghanWheelzz\\AfghanWheelzz.csproj|solutionrelative:afghanwheelzz\\migrations\\20240214161842_profilepicture.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\Details.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Home\\Details.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\Details.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Home\\Details.cshtml",
+              "ViewState": "AQIAABQAAAAAAAAAAAAQwDUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-13T22:49:45.036Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AfghanWheelzz",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\AfghanWheelzz.csproj",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
+              "RelativeToolTip": "AfghanWheelzz\\AfghanWheelzz.csproj",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-02-15T20:47:09.513Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Controllers\\Authentication\\AccountController.cs",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Controllers\\Authentication\\AccountController.cs",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Controllers\\Authentication\\AccountController.cs",
+              "RelativeToolTip": "AfghanWheelzz\\Controllers\\Authentication\\AccountController.cs",
+              "ViewState": "AQIAAEYAAAAAmJmZmRkawFQAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-14T16:01:07.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelz\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "..\\AfghanWheelz\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelz\\Views\\Home\\Index.cshtml*",
+              "RelativeToolTip": "..\\AfghanWheelz\\Views\\Home\\Index.cshtml*",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAwDkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-13T22:47:25.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Controllers\\CarController.cs",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Controllers\\CarController.cs",
+              "RelativeToolTip": "AfghanWheelzz\\Controllers\\CarController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-14T15:50:26.158Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "AfghanWheelzz\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-13T22:47:56.519Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-13T22:57:37.655Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_LoginPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Shared\\_LoginPartial.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Shared\\_LoginPartial.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Shared\\_LoginPartial.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-13T22:57:43.078Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Account\\Index.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Account\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Account\\Index.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Account\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-14T16:49:40.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserIndex.css",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\UserIndex.css",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\wwwroot\\css\\UserIndex.css",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\UserIndex.css",
+              "RelativeToolTip": "AfghanWheelzz\\wwwroot\\css\\UserIndex.css",
+              "ViewState": "AQIAADEAAAAAAAAAAAAQwFIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-14T16:55:42.937Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainLayout.css",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\MainLayout.css",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\wwwroot\\css\\MainLayout.css",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\MainLayout.css",
+              "RelativeToolTip": "AfghanWheelzz\\wwwroot\\css\\MainLayout.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-14T19:00:32.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "HomeIndex.css",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\HomeIndex.css",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\wwwroot\\css\\HomeIndex.css",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\HomeIndex.css",
+              "RelativeToolTip": "AfghanWheelzz\\wwwroot\\css\\HomeIndex.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-14T19:14:16.906Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CarCreate.css",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\CarCreate.css",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\wwwroot\\css\\CarCreate.css",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\CarCreate.css",
+              "RelativeToolTip": "AfghanWheelzz\\wwwroot\\css\\CarCreate.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-14T18:51:47.632Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\wwwroot\\css\\site.css",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "AfghanWheelzz\\wwwroot\\css\\site.css",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-02-14T19:23:35.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Cars\\Create.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Cars\\Create.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Cars\\Create.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Cars\\Create.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-14T18:48:47.739Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Home\\Index.cshtml",
+              "ViewState": "AQIAAAAAAAAANDMzMzMLwAgAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-13T22:47:35.757Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "About.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\About.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Home\\About.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\About.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Home\\About.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-14T18:55:26.25Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-14T19:04:07.429Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Account\\Register.cshtml",
+              "ViewState": "AQIAABcAAAAAAAAAAAAQwDgAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-14T16:11:58.275Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Contact.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\Contact.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Home\\Contact.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Home\\Contact.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Home\\Contact.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-14T18:55:28.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Cars\\Index.cshtml",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Views\\Cars\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Views\\Cars\\Index.cshtml",
+              "RelativeToolTip": "AfghanWheelzz\\Views\\Cars\\Index.cshtml",
+              "ViewState": "AQIAAEwAAAAAmZmZmVkqwBUAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-14T16:58:43.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ApplicationUser.cs",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Models\\UserModels\\ApplicationUser.cs",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Models\\UserModels\\ApplicationUser.cs",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Models\\UserModels\\ApplicationUser.cs",
+              "RelativeToolTip": "AfghanWheelzz\\Models\\UserModels\\ApplicationUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-14T16:16:30.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "20240214161842_profilepicture.cs",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Migrations\\20240214161842_profilepicture.cs",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\Migrations\\20240214161842_profilepicture.cs",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\Migrations\\20240214161842_profilepicture.cs",
+              "RelativeToolTip": "AfghanWheelzz\\Migrations\\20240214161842_profilepicture.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-14T18:44:06.487Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "RegisterViewModel.cs",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\ViewModels\\RegisterViewModel.cs",
+              "RelativeDocumentMoniker": "AfghanWheelzz\\ViewModels\\RegisterViewModel.cs",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\ViewModels\\RegisterViewModel.cs",
+              "RelativeToolTip": "AfghanWheelzz\\ViewModels\\RegisterViewModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-14T14:14:06.803Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "site.js",
+              "DocumentMoniker": "C:\\Users\\Safi\\source\\repos\\AfghanWheelz\\wwwroot\\js\\site.js",
+              "RelativeDocumentMoniker": "..\\AfghanWheelz\\wwwroot\\js\\site.js",
+              "ToolTip": "C:\\Users\\Safi\\source\\repos\\AfghanWheelz\\wwwroot\\js\\site.js",
+              "RelativeToolTip": "..\\AfghanWheelz\\wwwroot\\js\\site.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACwAAAAHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-02-14T14:12:39.17Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

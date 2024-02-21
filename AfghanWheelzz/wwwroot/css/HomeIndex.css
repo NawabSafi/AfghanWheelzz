@@ -1,8 +1,21 @@
-﻿
+﻿/* General Styles */
+body,
+.container,
+h1,
+.card,
+.card-body,
+.card-title,
+.card-text,
+.detail-btn,
+.btn-outline-info,
+.modal-content,
+.close {
+    font-family: 'Segoe UI', sans-serif;
+}
+
 body {
     background-color: #f8f9fa;
-    color: #343a40; /* Dark text color */
-    font-family: 'Segoe UI', sans-serif;
+    color: #343a40;
 }
 
 .container {
@@ -10,7 +23,7 @@ body {
 }
 
 h1 {
-    color: #007bff; /* Primary color for headings */
+    color: #007bff;
     font-size: 36px;
     font-weight: bold;
     text-align: center;
@@ -22,34 +35,27 @@ h1 {
 }
 
 .card {
-    background-color: #ffffff; /* White card background */
+    background-color: #ffffff;
     border: none;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
     .card:hover {
-        transform: translateY(-5px); /* Hover effect - lift card slightly */
+        transform: translateY(-5px);
     }
 
-.card-img {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    height: 200px; /* Adjust image height */
-    object-fit: cover;
-}
-
 .badge {
-    background-color: #dc3545; /* Red badge color */
-    color: #ffffff; /* White text color */
+    background-color: #dc3545;
+    color: #ffffff;
     font-size: 14px;
     font-weight: bold;
     padding: 5px 10px;
     position: absolute;
-    top: 0;
-    right: 0;
-    margin: 10px;
+    top: 15px;
+    right: 15px;
     border-radius: 5px;
 }
 
@@ -65,24 +71,23 @@ h1 {
 
 .card-text {
     font-size: 16px;
+    margin-bottom: 20px;
 }
 
-.detail-btn,
-.btn-outline-info {
+.detail-btn {
     margin-top: 20px;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .modal-content {
@@ -108,4 +113,147 @@ h1 {
         cursor: pointer;
     }
 
+/* Custom Colors */
+:root {
+    --mainBlue: #40ACF1;
+    --transparentBlue: rgba(64, 172, 241, 0.7);
+    --mainWhite: #FFFFFF;
+    --mainBlack: #292F36;
+    --mainGrey: rgb(216, 214, 214);
+    --mainYellow: #e3b505;
+}
 
+/* Navbar */
+.navbar {
+    background: var(--mainWhite);
+}
+
+.navbar-icon,
+.nav-icon,
+.footer-icon {
+    font-size: 1.5rem;
+    color: var(--mainBlue);
+}
+
+.navbar-toggler {
+    outline-color: var(--mainBlue) !important;
+}
+
+.nav-link {
+    color: var(--mainBlack);
+    text-transform: capitalize;
+}
+
+    .nav-link:hover {
+        color: var(--mainBlue);
+    }
+
+/* Header */
+.header {
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 50% 100%, 0 95%);
+    color: var(--mainWhite);
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--mainWhite);
+    z-index: 999;
+}
+
+.hidePreloader {
+    display: none !important;
+}
+
+/* Height Max */
+.height-max {
+    min-height: calc(100vh - 76px);
+    background: url("https://executive-taxi.co.uk/wp-content/uploads/2019/01/Barby-taxis.jpeg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    animation: zoom 20s infinite;
+}
+
+@keyframes zoom {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2) translateX(-5%);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Title Heading */
+.title-heading {
+    background: var(--transparentBlue);
+    color: var(--mainWhite);
+    padding: 0.5rem 2rem;
+    clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%);
+}
+
+/* Logo */
+#logo {
+    height: 50px;
+    width: 50px;
+}
+
+/* Featured Section */
+.featured-info {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.featured-item {
+    margin-bottom: 10px;
+}
+
+.featured-icon {
+    color: #007bff;
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* Gallery Section */
+.gallery {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 50px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.section-title-special {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px 20px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.gallery-item {
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.gallery-img {
+    transition: opacity 0.3s;
+}
+
+.gallery-item:hover .gallery-img {
+    opacity: 0.7;
+}

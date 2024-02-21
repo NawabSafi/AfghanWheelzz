@@ -36,7 +36,7 @@
                             </p>
                             <div class="text-center">
                                 <a asp-controller="Home" asp-action="Details" asp-route-id="@car.Id" class="btn btn-outline-primary detail-btn">Detail</a>
-                                <button onclick="openModal('@car.Id')" class="btn btn-outline-info">Seller Details</button>
+                               
                             </div>
                         </div>
                     </div>
@@ -44,7 +44,118 @@
             }
         </div>
     </div>
+    <section
+    <div class="row align-items-center">
+        <!--featured info-->
+        <div class="col-10 mx-auto col-lg-6 featured-info my-3">
+            <!--single item-->
+            <div class="featured-item my-3 d-flex flex-wrap p-2 text-capitalize align-items-baseline">
+                <span class="featured-icon mr-2">
+                    <i class="fas fa-car"></i>
+                </span>
+                <h5 class="font-weight-bold mx-1">Chevrolet</h5>
+                <h5 class="mx-1"> new model</h5>
+            </div>
+            <!--end of single item-->
+            <!--single item-->
+            <div class="featured-item my-3 d-flex flex-wrap p-2 text-capitalize align-items-baseline">
+                <span class="featured-icon mr-2">
+                    <i class="fas fa-car"></i>
+                </span>
+                <h5 class="font-weight-bold mx-1">bmw</h5>
+                <h5 class="mx-1"> new model</h5>
+            </div>
+            <!--end of single item-->
+            <!--single item-->
+            <div class="featured-item my-3 d-flex flex-wrap p-2 text-capitalize align-items-baseline">
+                <span class="featured-icon mr-2">
+                    <i class="fas fa-car"></i>
+                </span>
+                <h5 class="font-weight-bold mx-1">mercedes</h5>
+                <h5 class="mx-1"> new model</h5>
+            </div>
+            <!--end of single item-->
+            <!--single item-->
+            <div class="featured-item my-3 d-flex flex-wrap p-2 text-capitalize align-items-baseline">
+                <span class="featured-icon mr-2">
+                    <i class="fas fa-car"></i>
+                </span>
+                <h5 class="font-weight-bold mx-1">audi</h5>
+                <h5 class="mx-1"> new model</h5>
+            </div>
+            <!--end of single item-->
+        </div>
+        <!--featured img-->
+        <div class="col-10 mx-auto col-lg-6 featured-img my-3 ">
+            <div class="img-container">
+                <img src="~/Images/cars/pexels-may-dayua-1545743 (1).jpg" class="img-fluid featured-photo">
+                <a href="#" class="featured-link">
+                    <i class="fas fa-search"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    </section>
 
+
+    <section class="gallery py-5" id="gallery">
+        <div class="container">
+            <!--section title-->
+            <div class="row mb-5">
+                <div class="col d-flex flex-wrap justify-content-center text-uppercase">
+                    <h1 class="font-weight-bold mx-1 align-self-center">our</h1>
+                    <h1 class="section-title-special mx-1">gallery</h1>
+                </div>
+            </div>
+            <!--end of section title-->
+            <div class="row">
+                <!--left side column-->
+                <div class="col-sm-6">
+                    <div class="gallery-item">
+                        <img src="~/Images/cars/pexels-markus-spiske-1729993.jpg" class="img-fluid gallery-img">
+                    </div>
+                </div>
+                <!--right side column-->
+                <div class="col-sm-6 d-flex flex-column justify-content-between">
+                    <div class="row ">
+                        <!--single item-->
+                        <div class="col-sm-6">
+                            <div class="gallery-item">
+                                <img src="~/Images/cars/pexels-luis-quintero-3689531.jpg" class="img-fluid gallery-img">
+                            </div>
+                        </div>
+                        <!--end of single item-->
+                        <!--single item-->
+                        <div class="col-sm-6">
+                            <div class="gallery-item">
+                                <img src="~/Images/cars/pexels-neil-kelly-712618.jpg" class="img-fluid gallery-img">
+                            </div>
+                        </div>
+                        <!--end of single item-->
+
+                    </div>
+
+                    <div class="row ">
+                        <!--single item-->
+                        <div class="col-sm-6">
+                            <div class="gallery-item">
+                                <img src="~/Images/cars/pexels-natasha-filippovskaya-4665688.jpg" class="img-fluid gallery-img">
+                            </div>
+                        </div>
+                        <!--end of single item-->
+                        <!--single item-->
+                        <div class="col-sm-6">
+                            <div class="gallery-item">
+                                <img src="~/Images/cars/pexels-neil-kelly-712618.jpg" class="img-fluid gallery-img">
+                            </div>
+                        </div>
+                        <!--end of single item-->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Modal -->
     <div id="myModal" class="modal">
         <div class="modal-content">
@@ -55,7 +166,7 @@
         </div>
     </div>
 
-    <script src="~/js/UserDetailButton.js"></script>
+  
     <script src="~/js/searchCars.js"></script>
     <script src="~/js/DetailButton.js"></script>
 </body>

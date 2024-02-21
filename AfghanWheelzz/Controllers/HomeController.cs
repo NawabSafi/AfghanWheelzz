@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Linq;
 
 namespace AfghanWheelzz.Controllers
 {
@@ -48,16 +49,18 @@ namespace AfghanWheelzz.Controllers
             return Json(new { Name = $"{user.FirstName} {user.LastName}", user.Email, user.PhoneNumber });
         }
 
-
+     
         public async Task<IActionResult> Details(int id)
         {
             var car = await _carRepository.GetCarByIdAsync(id);
+            var user = await _userManager.FindByIdAsync(car.UserId);
             var Location = _context.Locations.FirstOrDefault(x => x.Id == car.LocationId);
             var Registration = _context.Registrations.FirstOrDefault(x => x.Id == car.RegistrationId);
             var Category = _context.Categories.FirstOrDefault(x => x.Id == car.CategoryId);
             ViewBag.Category = Category;
             ViewBag.Registration = Registration;
             ViewBag.Location = Location;
+            ViewBag.User= user;
             if (car == null)
             {
                 return NotFound();
@@ -65,6 +68,16 @@ namespace AfghanWheelzz.Controllers
 
             return View(car);
         }
+
+        // Action to display all car makes
+        public async Task<IActionResult> CarMakes()
+        {
+            var cars = await _carRepository.GetAllCarsAsync();
+            var groupedCars = cars.GroupBy(c => c.Make);
+            return View(groupedCars);
+        }
+
+
 
         [HttpPost]
         public async Task<IActionResult> FilterCars(string filterCriteria)

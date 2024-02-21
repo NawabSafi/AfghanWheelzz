@@ -13,12 +13,12 @@
       "PackagePath": "staticwebassets\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Personsdownload.jpeg"
     },
     {
-      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Personspic.jpg",
-      "PackagePath": "staticwebassets\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Personspic.jpg"
-    },
-    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\Default.jpeg",
       "PackagePath": "staticwebassets\\Images\\ProfilePictures\\Default.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\Wahdat.jpeg",
+      "PackagePath": "staticwebassets\\Images\\ProfilePictures\\Wahdat.jpeg"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\1.jpeg",
@@ -29,8 +29,52 @@
       "PackagePath": "staticwebassets\\Images\\cars\\car-2.jpg"
     },
     {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\car-3.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\car-3.jpg"
+    },
+    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\car.jpeg",
       "PackagePath": "staticwebassets\\Images\\cars\\car.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-luis-quintero-3689531.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-luis-quintero-3689531.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-markus-spiske-1729993.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-markus-spiske-1729993.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-may-dayua-1545743 (1).jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-may-dayua-1545743 (1).jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-may-dayua-1545743.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-may-dayua-1545743.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-mike-bird-112460.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-mike-bird-112460.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-mike-bird-136872.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-mike-bird-136872.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-mike-bird-977003.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-mike-bird-977003.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-natasha-filippovskaya-4665688.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-natasha-filippovskaya-4665688.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-neil-kelly-712618.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-neil-kelly-712618.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-trace-constant-707046.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\pexels-trace-constant-707046.jpg"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Logo.ico",
@@ -65,8 +109,8 @@
       "PackagePath": "staticwebassets\\js\\DeleteModal.js"
     },
     {
-      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\js\\UserDetailButton.js",
-      "PackagePath": "staticwebassets\\js\\UserDetailButton.js"
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\js\\LoginPasswordShow.js",
+      "PackagePath": "staticwebassets\\js\\LoginPasswordShow.js"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\js\\searchCars.js",
