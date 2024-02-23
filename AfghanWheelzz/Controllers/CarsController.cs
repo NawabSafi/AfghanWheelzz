@@ -1,4 +1,5 @@
 ﻿using AfghanWheelzz.Data;
+using AfghanWheelzz.Models;
 using AfghanWheelzz.Models.UserModels;
 using AfghanWheelzz.Repository;
 using AfghanWheelzz.ViewModels;
@@ -24,7 +25,7 @@ namespace AfghanWheelzz.Controllers
             _webHostEnvironment = webHostEnvironment;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Listing()
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var isAdmin = User.IsInRole("Admin"); // Adjust this based on how you identify admins
@@ -40,6 +41,30 @@ namespace AfghanWheelzz.Controllers
                 cars = await _carRepository.GetCarsByUserIdAsync(userId);
             }
 
+            return View(cars);
+        }
+        public IActionResult Index()
+        {
+            // Get all cars from the database
+            var cars = _context.Cars.OrderBy(car => car.DatePublished).ToList();
+
+            // Initialize ViewBag.Location and ViewBag.Category as dictionaries
+            ViewBag.Location = new Dictionary<int, Location>
+    ();
+            ViewBag.Category = new Dictionary<int, Category>
+                ();
+
+            // Iterate through each car to get its associated location, registration, and category
+            foreach (var car in cars)
+            {
+                // Get the associated location for the current car and store it in ViewBag
+                ViewBag.Location[car.Id] = _context.Locations.FirstOrDefault(x => x.Id == car.LocationId);
+
+                // Get the associated category for the current car and store it in ViewBag
+                ViewBag.Category[car.Id] = _context.Categories.FirstOrDefault(x => x.Id == car.CategoryId);
+            }
+
+            // Pass the sorted list of cars to the view
             return View(cars);
         }
 
@@ -147,18 +172,39 @@ namespace AfghanWheelzz.Controllers
                 return View(nameof(Index), await _carRepository.GetAllCarsAsync());
             }
         }
-        public async Task<IActionResult> Edit(int id)
+        // GET: Cars/Edit/5
+        public async Task<IActionResult> Edit(int? id)
         {
-            var car = await _carRepository.GetCarByIdAsync(id);
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var car = await _context.Cars.FindAsync(id);
             if (car == null)
             {
                 return NotFound();
             }
-            return View(car);
+
+            var carViewModel = new CarViewModel
+            {
+                Id = car.Id,
+                Make = car.Make,
+                Model = car.Model,
+                Year = car.Year,
+                Price = car.Price,
+                Mileage = car.Mileage,
+                Description = car.description
+            };
+
+            return View(carViewModel);
         }
 
+        // POST: Cars/Edit/5
+        // POST: Cars/Edit/5
         [HttpPost]
-        public async Task<IActionResult> Edit(int id, CarViewModel carViewModel)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Make,Model,Year,Price,Mileage,Description,File")] CarViewModel carViewModel)
         {
             if (id != carViewModel.Id)
             {
@@ -169,14 +215,35 @@ namespace AfghanWheelzz.Controllers
             {
                 try
                 {
-                    // Retrieve the original car data from the repository
-                    var originalCar = await _carRepository.GetCarByIdAsync(id);
+                    var car = await _context.Cars.FindAsync(id);
+                    car.Make = carViewModel.Make;
+                    car.Model = carViewModel.Model;
+                    car.Year = carViewModel.Year;
+                    car.Price = carViewModel.Price;
+                    car.Mileage = carViewModel.Mileage;
+                    car.description = carViewModel.Description;
 
-                    // Set the ImagePath property of the view model to the original image path
-                    carViewModel.ImagePath = originalCar?.ImagePath;
+                    // Check if a new file is provided
+                    if (carViewModel.File != null)
+                    {
+                        string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images", "cars");
+                        string uniqueFileName = Guid.NewGuid().ToString() + "_" + Path.GetFileName(carViewModel.File.FileName);
+                        string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+                        car.ImagePath = Path.Combine("Images", "cars", uniqueFileName);
 
-                    // Update the car
-                    await _carRepository.UpdateCarAsync(carViewModel);
+                        using (var stream = new FileStream(filePath, FileMode.Create))
+                        {
+                            await carViewModel.File.CopyToAsync(stream);
+                        }
+                    }
+                    else
+                    {
+                        // If no new file is provided, keep the existing file path unchanged
+                        carViewModel.ImagePath = car.ImagePath;
+                    }
+
+                    _context.Update(car);
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -198,7 +265,6 @@ namespace AfghanWheelzz.Controllers
         {
             return _context.Cars.Any(e => e.Id == id);
         }
-
 
     }
 }

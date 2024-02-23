@@ -1,14 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="container">
     <h1 class="text-center mb-4">Car Details</h1>
 
-    <div class="row align-items-center">
+    <div class="row align-items-center h-100">
         <!-- Car details -->
         <div class="col-md-6">
-            <div class="card car-details p-4">
+            <div class="card car-details p-4 h-100">
                 <h4 class="text-primary">@Model.Make @Model.Model</h4>
                 <hr />
                 <dl class="row">
@@ -41,7 +42,7 @@
 
         <!-- Car image -->
         <div class="col-md-6">
-            <div class="card">
+            <div class="card h-100">
                 <img src="~/@Model.ImagePath" class="card-img-top car-image rounded border" alt="Car Image" />
             </div>
         </div>
@@ -49,7 +50,7 @@
 
     <div class="row mt-4">
         <div class="col-md-6">
-            <div class="card user-details p-4">
+            <div class="card user-details p-4 h-100">
                 <h4 class="text-primary">Seller Details</h4>
                 <hr />
                 <dl class="row">
@@ -61,12 +62,18 @@
 
                     <dt class="col-sm-4">Phone Number</dt>
                     <dd class="col-sm-8">
-                        <span id="phoneNumber"></span> <!-- Empty span element for displaying phone number -->
+                        <span id="phoneNumber">
+                            <!-- Initially, show only the masked phone number -->
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @(ViewBag.User.PhoneNumber.Substring(0, 4) + "***" + ViewBag.User.PhoneNumber.Substring(ViewBag.User.PhoneNumber.Length - 3))
+                            }
+                        </span>
+
+                        <!-- Move the button outside of the span -->
                         @if (User.Identity.IsAuthenticated)
                         {
-                            @(ViewBag.User.PhoneNumber.Substring(0, 4) + "***" + ViewBag.User.PhoneNumber.Substring(ViewBag.User.PhoneNumber.Length - 3))
-
-                            <button class="btn btn-link btn-sm" onclick="showPhoneNumber()">Show Number</button>
+                            <button id="showNumberButton" class="btn btn-link btn-sm" onclick="showPhoneNumber()">Show Number</button>
                         }
                         else
                         {
@@ -96,6 +103,9 @@
     function showPhoneNumber() {
         var phoneNumberElement = document.getElementById("phoneNumber");
         phoneNumberElement.textContent = "@ViewBag.User.PhoneNumber";
+
+        // Remove the "Show Number" button after displaying the full phone number
+        var buttonElement = document.getElementById("showNumberButton");
+        buttonElement.parentNode.removeChild(buttonElement);
     }
 </script>
-

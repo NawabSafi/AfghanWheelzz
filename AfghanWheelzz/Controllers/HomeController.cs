@@ -26,7 +26,7 @@ namespace AfghanWheelzz.Controllers
             _carRepository = carRepository;
 
         }
-
+/*
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> GetSellerDetails(int carId)
@@ -48,7 +48,7 @@ namespace AfghanWheelzz.Controllers
             // Return user details as JSON
             return Json(new { Name = $"{user.FirstName} {user.LastName}", user.Email, user.PhoneNumber });
         }
-
+*/
      
         public async Task<IActionResult> Details(int id)
         {
