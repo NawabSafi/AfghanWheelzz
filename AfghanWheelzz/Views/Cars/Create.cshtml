@@ -5,7 +5,7 @@
 }
 <link rel="stylesheet" href="~/css/CarCreate.css"/>
 <div class="container">
-    <h1 class="mb-4">Create a New Car Listing</h1>
+    <h1 class="mb-4">Post Your Car</h1>
 
     <hr />
 
@@ -82,15 +82,17 @@
                     </select>
                     <span asp-validation-for="RegistrationId" class="text-danger"></span>
                 </div>
+                <br />
 
                 <div class="form-group">
                     <label asp-for="File" class="control-label">Upload Car Image:</label>
                     <input type="file" name="File" class="form-control-file" required />
                     <span asp-validation-for="File" class="text-danger"></span>
                 </div>
+                <br />
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Create Listing</button>
+                    <button type="submit" class="btn btn-primary">Submit Detail</button>
                 </div>
             </form>
         </div>

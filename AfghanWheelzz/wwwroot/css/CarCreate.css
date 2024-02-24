@@ -1,0 +1,103 @@
+﻿.futuristic-container {
+    background-color: #111;
+    padding: 50px;
+    border-radius: 20px;
+    animation: rotate-container 10s linear infinite;
+}
+
+@keyframes rotate-container {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.futuristic-heading {
+    color: #fff;
+    font-size: 36px;
+    text-align: center;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 75px #00ffff;
+    }
+
+    to {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 75px #00ffff;
+    }
+}
+
+.futuristic-divider {
+    border-top: 1px solid #fff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    animation: neon-pulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse {
+    from {
+        border-color: #00ffff;
+    }
+
+    to {
+        border-color: #fff;
+    }
+}
+
+.futuristic-form {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    transform: scale(0.8);
+    animation: scale-form 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes scale-form {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1);
+    }
+}
+
+.futuristic-button {
+    border-radius: 30px;
+    font-weight: bold;
+    padding: 15px 30px;
+    transition: background-color 0.3s, color 0.3s;
+    animation: neon-pulse-button 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-pulse-button {
+    from {
+        box-shadow: 0 0 10px #00ffff;
+    }
+
+    to {
+        box-shadow: 0 0 20px #00ffff;
+    }
+}
+
+.futuristic-button:hover {
+    background-color: #00ffff;
+    color: #111;
+    animation: neon-button-hover 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-button-hover {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-5px);
+    }
+}

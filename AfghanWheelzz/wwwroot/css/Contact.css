@@ -1,0 +1,68 @@
+﻿
+
+.extreme-container {
+    background-color: #000;
+    padding: 50px;
+    border-radius: 20px;
+    color: #fff;
+}
+
+.extreme-heading {
+    font-size: 36px;
+    text-align: center;
+    animation: neon-glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 75px #00ffff;
+    }
+
+    to {
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ffff, 0 0 40px #00ffff, 0 0 55px #00ffff, 0 0 75px #00ffff;
+    }
+}
+
+.extreme-content {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}
+
+.extreme-form {
+    margin-top: 30px;
+}
+
+    .extreme-form input,
+    .extreme-form textarea {
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 1px solid #fff;
+        color: #fff;
+    }
+
+        .extreme-form input::placeholder,
+        .extreme-form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .extreme-form input:focus,
+        .extreme-form textarea:focus {
+            outline: none;
+            border-color: #00ffff;
+        }
+
+    .extreme-form button {
+        background-color: #00ffff;
+        border: none;
+        border-radius: 5px;
+        color: #000;
+        font-weight: bold;
+        padding: 10px 20px;
+        transition: background-color 0.3s;
+    }
+
+        .extreme-form button:hover {
+            background-color: #ff00ff;
+        }
+
