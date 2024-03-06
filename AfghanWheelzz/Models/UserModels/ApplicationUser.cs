@@ -8,6 +8,9 @@ namespace AfghanWheelzz.Models.UserModels
         public string? LastName { get; set; }
         public string? Address { get; set; }
         public string? ProfilePicturePath { get; set; }
+        public DateTime LastLogin { get; set; }
+        public DateTime DateCreated { get; set; }
+        public int CarCount { get; set; }
         public ICollection<Car>? Cars { get; set; }
     }
 }

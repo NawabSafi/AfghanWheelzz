@@ -49,10 +49,8 @@ namespace AfghanWheelzz.Controllers
             var cars = _context.Cars.OrderBy(car => car.DatePublished).ToList();
 
             // Initialize ViewBag.Location and ViewBag.Category as dictionaries
-            ViewBag.Location = new Dictionary<int, Location>
-    ();
-            ViewBag.Category = new Dictionary<int, Category>
-                ();
+            ViewBag.Location = new Dictionary<int, Location>();
+            ViewBag.Category = new Dictionary<int, Category>();
 
             // Iterate through each car to get its associated location, registration, and category
             foreach (var car in cars)
@@ -135,6 +133,7 @@ namespace AfghanWheelzz.Controllers
                     carViewModel.ImagePath = Path.Combine("Images", "cars", fileName);
 
                     await _carRepository.AddCarAsync(carViewModel, userId);
+                  
                     return RedirectToAction(nameof(Index));
                 }
             }

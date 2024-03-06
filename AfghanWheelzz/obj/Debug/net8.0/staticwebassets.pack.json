@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Images\\ProfilePictures\\1.jpeg"
     },
     {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Persons3.jpeg",
+      "PackagePath": "staticwebassets\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Persons3.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Personsdownload.jpeg",
       "PackagePath": "staticwebassets\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Personsdownload.jpeg"
     },
@@ -45,6 +49,10 @@
       "PackagePath": "staticwebassets\\Images\\cars\\b9c7a7b7-9e71-44c1-a989-aa52f011e6cc_cd-4.jpg"
     },
     {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\car-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\car-1.jpg"
+    },
+    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\car-2.jpg",
       "PackagePath": "staticwebassets\\Images\\cars\\car-2.jpg"
     },
@@ -59,6 +67,22 @@
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\cd-1.jpg",
       "PackagePath": "staticwebassets\\Images\\cars\\cd-1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\cd-2.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\cd-2.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\cd-3.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\cd-3.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\cd-4.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\cd-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\cd-6.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\cd-6.jpg"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\pexels-luis-quintero-3689531.jpg",
@@ -107,6 +131,10 @@
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\sm-4.jpg",
       "PackagePath": "staticwebassets\\Images\\cars\\sm-4.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\sm-5.jpg",
+      "PackagePath": "staticwebassets\\Images\\cars\\sm-5.jpg"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Logo.ico",
