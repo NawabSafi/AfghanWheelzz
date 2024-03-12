@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AfghanWheelzz")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fbe1da18ef080c56c31f8b42358f9824d3988429")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0bbd235b62a733dadf943e4c536a04a4e306752d")]
 [assembly: System.Reflection.AssemblyProductAttribute("AfghanWheelzz")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AfghanWheelzz")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

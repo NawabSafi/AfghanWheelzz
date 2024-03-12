@@ -22,13 +22,6 @@ namespace AfghanWheelzz.Repository
                 .ToListAsync();
             return carEntities.Select(MapCarEntityToViewModel).ToList();
         }
-        public async Task<CarViewModel> GetCarByIdAsync(int id)
-        {
-            var carEntity = await _dbContext.Cars
-                .Include(c => c.User)
-                .FirstOrDefaultAsync(c => c.Id == id);
-            return MapCarEntityToViewModel(carEntity);
-        }
 
         public async Task<List<CarViewModel>> GetAllCarsAsync()
         {
@@ -37,6 +30,28 @@ namespace AfghanWheelzz.Repository
                 .ToListAsync();
             return carEntities.Select(MapCarEntityToViewModel).ToList();
         }
+
+
+
+        public async Task<CarViewModel> GetCarByIdAsync(int id)
+        {
+            var carEntity = await _dbContext.Cars
+                .Include(c => c.User)
+                .FirstOrDefaultAsync(c => c.Id == id);
+            return MapCarEntityToViewModel(carEntity);
+        }
+
+        public async Task<List<CarViewModel>> GetAllCarsAsync(int pageNumber, int pageSize)
+        {
+            var carEntities = await _dbContext.Cars
+                .Include(c => c.User)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            return carEntities.Select(MapCarEntityToViewModel).ToList();
+        }
+
 
         public async Task AddCarAsync(CarViewModel car, string userId)
         {
@@ -90,7 +105,7 @@ namespace AfghanWheelzz.Repository
 
             return viewModel;
         }
-
+       
 
         private Car MapViewModelToCarEntity(CarViewModel carViewModel)
         {

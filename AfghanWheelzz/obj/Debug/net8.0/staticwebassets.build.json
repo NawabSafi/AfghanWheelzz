@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "PJp9UdAHiGlU3ib0KCWU3G6EofTQfTmfYIiutaQP6Ys=",
+  "Hash": "GPOagDapI5blKiwV6D8AueS7BmS+xnyFN00Sz+B5QeE=",
   "Source": "AfghanWheelzz",
   "BasePath": "_content/AfghanWheelzz",
   "Mode": "Default",
@@ -224,6 +224,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\cars\\1.jpeg"
+    },
+    {
+      "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\107f4db0-eb27-4456-9b0d-d182109c93f7_cd-2.jpg",
+      "SourceId": "AfghanWheelzz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\",
+      "BasePath": "_content/AfghanWheelzz",
+      "RelativePath": "Images/cars/107f4db0-eb27-4456-9b0d-d182109c93f7_cd-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\cars\\107f4db0-eb27-4456-9b0d-d182109c93f7_cd-2.jpg"
     },
     {
       "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\31541819-2c78-459a-b5bd-fdd8d6b145fe_cd-2.jpg",
@@ -454,6 +473,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\cars\\cd-4.jpg"
     },
     {
+      "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\cd-5.jpg",
+      "SourceId": "AfghanWheelzz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\",
+      "BasePath": "_content/AfghanWheelzz",
+      "RelativePath": "Images/cars/cd-5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\cars\\cd-5.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\cd-6.jpg",
       "SourceId": "AfghanWheelzz",
       "SourceType": "Discovered",
@@ -663,6 +701,25 @@
       "OriginalItemSpec": "wwwroot\\Images\\cars\\pexels-trace-constant-707046.jpg"
     },
     {
+      "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\sm-1.jpg",
+      "SourceId": "AfghanWheelzz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\",
+      "BasePath": "_content/AfghanWheelzz",
+      "RelativePath": "Images/cars/sm-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\cars\\sm-1.jpg"
+    },
+    {
       "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\sm-2.jpg",
       "SourceId": "AfghanWheelzz",
       "SourceType": "Discovered",
@@ -680,6 +737,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Images\\cars\\sm-2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\sm-3.jpg",
+      "SourceId": "AfghanWheelzz",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\",
+      "BasePath": "_content/AfghanWheelzz",
+      "RelativePath": "Images/cars/sm-3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Images\\cars\\sm-3.jpg"
     },
     {
       "Identity": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\sm-4.jpg",

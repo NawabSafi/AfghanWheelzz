@@ -1,7 +1,9 @@
-﻿@{
+﻿@model X.PagedList.IPagedList<Car>
+@{
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<html>
 <head>
     <style>
         body {
@@ -155,14 +157,15 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Explore Our Car Listings</h1>
-        <div class="input-group mb-3">
-            <input type="text" id="searchInput" class="form-control" placeholder="Search by make, model, or price">
-            <div class="input-group-append">
-                <button class="btn btn-primary" type="button" onclick="searchCars()">Search</button>
-            </div>
+<div class="input-group mb-3">
+    <form method="get" action="@Url.Action("Index", "Cars")">
+        <input type="text" id="searchInput" class="form-control" placeholder="Search by make, model, or description" name="searchTerm">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
         </div>
+    </form>
+    </div>
+
 
         <div class="row">
             @foreach (var car in Model)
@@ -190,7 +193,34 @@
                 </div>
             }
         </div>
+    
+    <div class="text-center mt-4">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
+                @if (Model.HasPreviousPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="?pageNumber=@Model.PageNumber - 1">&laquo;</a>
+                    </li>
+                }
+
+                @for (int i = 1; i <= Model.PageCount; i++)
+                {
+                    <li class="page-item @(Model.PageNumber == i ? "active" : "")">
+                        <a class="page-link" href="?pageNumber=@i">@i</a>
+                    </li>
+                }
+
+                @if (Model.HasNextPage)
+                {
+                    <li class="page-item">
+                        <a class="page-link" href="?pageNumber=@Model.PageNumber + 1">&raquo;</a>
+                    </li>
+                }
+            </ul>
+        </nav>
     </div>
+
     <section class="py-5">
         <div class="container">
             <div class="row align-items-center">
@@ -329,7 +359,6 @@
     </div>
 
 
-    <script src="~/js/searchCars.js"></script>
     <script src="~/js/DetailButton.js"></script>
 </body>
 </html>

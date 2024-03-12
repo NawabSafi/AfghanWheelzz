@@ -206,6 +206,14 @@ namespace AfghanWheelzz.Controllers.Authentication
 
                 var usersWithCarCounts = new List<ApplicationUser>();
 
+                DateTime today = DateTime.Today;
+                var usersVisitedTodayCount = await _context.Users
+                    .Where(u => u.LastLogin.Date == today)
+                    .CountAsync();
+
+                // Pass the count to the view
+                ViewBag.UsersVisitedTodayCount = usersVisitedTodayCount;
+                // Find the user by Id
                 foreach (var user in users)
                 {
                     var carCount = await _context.Cars.CountAsync(c => c.UserId == user.Id);
@@ -272,48 +280,14 @@ namespace AfghanWheelzz.Controllers.Authentication
             }
             catch (Exception ex)
             {
+                ViewBag.UsersVisitedTodayCount = 0; // Set count to 0 in case of an exception
+
                 ViewBag.ChartDataByMake = null; // Set ViewBag.ChartDataByMake to null in case of an exception
                 ViewBag.ChartDataByLocation = null; // Set ViewBag.ChartDataByLocation to null in case of an exception
                 ViewBag.ChartDataByRegistration = null; // Set ViewBag.ChartDataByRegistration to null in case of an exception
                 ViewBag.ChartDataByCategory = null; // Set ViewBag.ChartDataByCategory to null in case of an exception
 
                 return View();
-            }
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteUser(string userId)
-        {
-            try
-            {
-                // Find the user by Id
-                var user = await _userManager.FindByIdAsync(userId);
-
-                if (user == null)
-                {
-                    ViewBag.ErrorMessage = "User not found.";
-                    return View("Dashboard");
-                }
-
-                // Delete the user
-                var result = await _userManager.DeleteAsync(user);
-
-                if (result.Succeeded)
-                {
-                    return RedirectToAction("Dashboard");
-                }
-                else
-                {
-                    ViewBag.ErrorMessage = "Failed to delete user.";
-                    return View("Dashboard");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Handle exception
-                ViewBag.ErrorMessage = "An error occurred while deleting the user.";
-                return View("Dashboard");
             }
         }
 

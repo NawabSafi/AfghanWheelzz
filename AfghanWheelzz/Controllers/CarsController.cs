@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using X.PagedList;
 
 namespace AfghanWheelzz.Controllers
 {
@@ -43,17 +44,34 @@ namespace AfghanWheelzz.Controllers
 
             return View(cars);
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string searchTerm, int pageNumber = 1, int pageSize = 9)
         {
-            // Get all cars from the database
-            var cars = _context.Cars.OrderBy(car => car.DatePublished).ToList();
+            // Get total count of cars
+            var totalCount = _context.Cars.Count();
+
+            // Get cars for the current page
+            var cars = _context.Cars.OrderBy(car => car.DatePublished);
+
+            // Filter cars based on search term if provided
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                cars = cars.Where(car =>
+                    car.Make.ToLower().Contains(searchTerm.ToLower()) ||
+                    car.Model.ToLower().Contains(searchTerm.ToLower()) ||
+                    car.description.ToLower().Contains(searchTerm.ToLower())
+                ).OrderBy(car => car.DatePublished); // Assuming 'DatePublished' is the property you want to order by
+            }
+
+
+            // Paginate the filtered or unfiltered list of cars
+            var pagedCars = await cars.ToPagedListAsync(pageNumber, pageSize);
 
             // Initialize ViewBag.Location and ViewBag.Category as dictionaries
             ViewBag.Location = new Dictionary<int, Location>();
             ViewBag.Category = new Dictionary<int, Category>();
 
-            // Iterate through each car to get its associated location, registration, and category
-            foreach (var car in cars)
+            // Iterate through each car to get its associated location and category
+            foreach (var car in pagedCars)
             {
                 // Get the associated location for the current car and store it in ViewBag
                 ViewBag.Location[car.Id] = _context.Locations.FirstOrDefault(x => x.Id == car.LocationId);
@@ -62,39 +80,46 @@ namespace AfghanWheelzz.Controllers
                 ViewBag.Category[car.Id] = _context.Categories.FirstOrDefault(x => x.Id == car.CategoryId);
             }
 
-            // Pass the sorted list of cars to the view
-            return View(cars);
+            // Pass necessary pagination information to the view using ViewBag
+            ViewBag.PageNumber = pagedCars.PageNumber;
+            ViewBag.PageSize = pagedCars.PageSize;
+            ViewBag.TotalCount = pagedCars.TotalItemCount;
+            ViewBag.TotalPages = pagedCars.PageCount;
+
+            // Pass the paginated list of cars to the view
+            return View(pagedCars);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> SearchCars(string searchTerm)
-        {
-            // Get all cars from the repository
-            var allCars = await _carRepository.GetAllCarsAsync();
 
-            // Filter the cars based on the search term
-            if (!string.IsNullOrEmpty(searchTerm))
-            {
-                allCars = allCars.Where(car =>
-                    car.Make.ToLower().Contains(searchTerm.ToLower()) ||
-                    car.Model.ToLower().Contains(searchTerm.ToLower()) ||
-                    car.Description.ToLower().Contains(searchTerm.ToLower())
-                ).ToList(); // Explicitly convert to List<CarViewModel>
-            }
+        /*  [HttpPost]
+          public async Task<IActionResult> SearchCars(string searchTerm)
+          {
+              // Get all cars from the repository
+              var allCars = await _carRepository.GetAllCarsAsync();
 
-            // Return the filtered list of cars if searchTerm is not empty,
-            // otherwise return all cars
-            if (!string.IsNullOrEmpty(searchTerm))
-            {
-                return View("Index", allCars);
-            }
-            else
-            {
-                // Return all cars if searchTerm is empty
-                return RedirectToAction("Index");
-            }
-        }
+              // Filter the cars based on the search term
+              if (!string.IsNullOrEmpty(searchTerm))
+              {
+                  allCars = allCars.Where(car =>
+                      car.Make.ToLower().Contains(searchTerm.ToLower()) ||
+                      car.Model.ToLower().Contains(searchTerm.ToLower()) ||
+                      car.Description.ToLower().Contains(searchTerm.ToLower())
+                  ).ToList(); // Explicitly convert to List<CarViewModel>
+              }
 
+              // Return the filtered list of cars if searchTerm is not empty,
+              // otherwise return all cars
+              if (!string.IsNullOrEmpty(searchTerm))
+              {
+                  return View("Index", allCars);
+              }
+              else
+              {
+                  // Return all cars if searchTerm is empty
+                  return RedirectToAction("Index");
+              }
+          }
+  */
         public IActionResult Create()
         {
             return View();
@@ -133,7 +158,7 @@ namespace AfghanWheelzz.Controllers
                     carViewModel.ImagePath = Path.Combine("Images", "cars", fileName);
 
                     await _carRepository.AddCarAsync(carViewModel, userId);
-                  
+
                     return RedirectToAction(nameof(Index));
                 }
             }

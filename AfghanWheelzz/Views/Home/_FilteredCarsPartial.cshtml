@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Car>
+
+@foreach (var car in Model)
+{
+    var imagePath = car.ImagePath.Replace("\\", "/");
+    <div class="col-md-4 mb-4">
+        <div class="card shadow">
+            <div class="position-relative overflow-hidden">
+                <img src="~/@imagePath" class="card-img" alt="Car Image">
+                <span class="badge">New Arrival</span>
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">@($"{car.Make} {car.Model}")</h5>
+                <p class="card-text">
+                    <strong>Price:</strong>  @car.Price <strong>(AFN)</strong><br />
+                    <strong>Mileage:</strong> @car.Mileage <strong>(MPG)</strong> <br />
+                    <strong>Location:</strong> @ViewBag.Location[car.Id].City <i class="fas fa-map-marker-alt"></i> <br />
+                </p>
+                <div class="text-center">
+                    <a asp-controller="Home" asp-action="Details" asp-route-id="@car.Id" class="btn btn-outline-primary detail-btn">Detail</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}

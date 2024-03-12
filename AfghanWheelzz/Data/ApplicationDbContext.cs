@@ -1,7 +1,9 @@
 ﻿using AfghanWheelzz.Models;
 using AfghanWheelzz.Models.UserModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace AfghanWheelzz.Data
 {
@@ -70,7 +72,5 @@ namespace AfghanWheelzz.Data
                 new Registration { Id = 2, RegistrationName = "Un-Registered" }
             );
         }
-
-
     }
 }

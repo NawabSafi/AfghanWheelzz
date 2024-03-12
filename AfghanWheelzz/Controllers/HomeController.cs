@@ -97,11 +97,12 @@ namespace AfghanWheelzz.Controllers
 
         public IActionResult About() => View();
 
-       
+      
+
         public IActionResult Index()
         {
-            // Get all cars from the database
-            var cars = _context.Cars.OrderBy(car => car.DatePublished).ToList();
+            // Get all cars from the database, ordered by DatePublished in descending order
+            var cars = _context.Cars.OrderByDescending(car => car.DatePublished).ToList();
 
             // Initialize ViewBag.Location and ViewBag.Category as dictionaries
             ViewBag.Location = new Dictionary<int, Location>();
@@ -120,6 +121,7 @@ namespace AfghanWheelzz.Controllers
             // Pass the sorted list of cars to the view
             return View(cars);
         }
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error() => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

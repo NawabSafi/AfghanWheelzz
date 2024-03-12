@@ -293,6 +293,26 @@ namespace AfghanWheelzz.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "1a449d13-d599-4545-8711-197906c1e999",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "1b81092f-fe66-4ec1-bd02-73df51ad416e",
+                            Name = "Finance",
+                            NormalizedName = "FINANCE"
+                        },
+                        new
+                        {
+                            Id = "54145be1-7a88-4ad5-9983-bfaa2c963ec4",
+                            Name = "Marketing",
+                            NormalizedName = "MARKETING"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

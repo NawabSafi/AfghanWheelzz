@@ -7,7 +7,7 @@
 
 /* Main container styling */
 .extreme-container {
-    background: linear-gradient(to bottom, #3a1c71, #d76d77, #ffaf7b);
+    background: linear-gradient(to bottom, #395f93, #2980b9); /* New background color */
     color: #fff;
     padding: 50px;
     border-radius: 20px;

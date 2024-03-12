@@ -1,15 +1,18 @@
-using AfghanWheelzz.Data;
+using AfghanWheelzz.Models;
 using AfghanWheelzz.Models.UserModels;
-using AfghanWheelzz.Repository;
-using AfghanWheelzz.Services;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity;
+using System;
+using System.Threading.Tasks;
+using AfghanWheelzz.Data;
+using AfghanWheelzz.Repository;
+using AfghanWheelzz.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -43,8 +46,8 @@ builder.Services.ConfigureApplicationCookie(option =>
     option.ExpireTimeSpan = TimeSpan.FromDays(30);
     option.SlidingExpiration = true;
 
-}
-);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -62,6 +65,7 @@ app.UseRouting();
 
 app.UseAuthentication(); // Add this line for Identity authentication
 app.UseAuthorization();
+
 app.MapGet("/", async context =>
 {
     using (var scope = app.Services.CreateScope())
@@ -81,6 +85,10 @@ app.MapGet("/", async context =>
             await userManager.AddToRoleAsync(user, "Admin");
 
             Console.WriteLine("Admin role assigned successfully to nawab.safi61@gmail.com");
+
+            // Redirect the response before any content is written
+            context.Response.Redirect("/Cars/Index");
+            return;
         }
         else
         {
@@ -90,13 +98,17 @@ app.MapGet("/", async context =>
 
     if (context.User.Identity.IsAuthenticated)
     {
+        // If the user is authenticated, redirect to the Cars/Index page
         context.Response.Redirect("/Cars/Index");
     }
     else
     {
+        // If not authenticated, redirect to the Home/Index page
         context.Response.Redirect("/Home/Index");
     }
 });
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

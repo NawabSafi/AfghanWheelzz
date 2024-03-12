@@ -265,3 +265,14 @@ C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\refint\A
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.pdb
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.genruntimeconfig.cache
 C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\ref\AfghanWheelzz.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\xunit.abstractions.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\xunit.assert.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\xunit.core.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\xunit.execution.dotnet.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\Castle.Core.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\FakeItEasy.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\FluentAssertions.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\JetBrains.Annotations.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\X.PagedList.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\bin\Debug\net8.0\X.PagedList.Mvc.Core.dll
+C:\Users\Safi\source\repos\AfghanWheelzz\AfghanWheelzz\obj\Debug\net8.0\AfghanWheelzz.MvcApplicationPartsAssemblyInfo.cs

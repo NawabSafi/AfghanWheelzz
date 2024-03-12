@@ -17,14 +17,23 @@ namespace AfghanWheelzz.Services
         {
             return _carRepository.GetCarByIdAsync(id);
         }
-        public Task<List<CarViewModel>> GetCarsByUserIdAsync(string userId)
-        {
-            return _carRepository.GetCarsByUserIdAsync(userId);
-        }
+
+
         public Task<List<CarViewModel>> GetAllCarsAsync()
         {
             return _carRepository.GetAllCarsAsync();
         }
+
+
+        public Task<List<CarViewModel>> GetCarsByUserIdAsync(string userId)
+        {
+            return _carRepository.GetCarsByUserIdAsync(userId);
+        }
+        public Task<List<CarViewModel>> GetAllCarsAsync(int pageNumber, int pageSize)
+        {
+            return _carRepository.GetAllCarsAsync(pageNumber, pageSize);
+        }
+
 
         public Task AddCarAsync(CarViewModel car, string userId)
         {
