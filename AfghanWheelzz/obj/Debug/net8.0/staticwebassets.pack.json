@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\Images\\ProfilePictures\\1.jpeg"
     },
     {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Persons2.jpeg",
+      "PackagePath": "staticwebassets\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Persons2.jpeg"
+    },
+    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Persons3.jpeg",
       "PackagePath": "staticwebassets\\Images\\ProfilePictures\\C__Users_Safi_OneDrive_Pictures_PersonsC__Users_Safi_OneDrive_Pictures_Persons3.jpeg"
     },
@@ -27,6 +31,10 @@
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\ProfilePictures\\Wahdat.jpeg",
       "PackagePath": "staticwebassets\\Images\\ProfilePictures\\Wahdat.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\bg-1.jpg",
+      "PackagePath": "staticwebassets\\Images\\bg-1.jpg"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\cars\\1.jpeg",
@@ -153,6 +161,42 @@
       "PackagePath": "staticwebassets\\Images\\cars\\sm-5.jpg"
     },
     {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\feature\\car.png",
+      "PackagePath": "staticwebassets\\Images\\feature\\car.png"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\feature\\feature-1.png",
+      "PackagePath": "staticwebassets\\Images\\feature\\feature-1.png"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\feature\\feature-2.png",
+      "PackagePath": "staticwebassets\\Images\\feature\\feature-2.png"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\feature\\feature-3.png",
+      "PackagePath": "staticwebassets\\Images\\feature\\feature-3.png"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\feature\\feature-4.png",
+      "PackagePath": "staticwebassets\\Images\\feature\\feature-4.png"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\feature\\feature-5.png",
+      "PackagePath": "staticwebassets\\Images\\feature\\feature-5.png"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\feature\\feature-6.png",
+      "PackagePath": "staticwebassets\\Images\\feature\\feature-6.png"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\hero-bg.jpg",
+      "PackagePath": "staticwebassets\\Images\\hero-bg.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Images\\wheel.png",
+      "PackagePath": "staticwebassets\\Images\\wheel.png"
+    },
+    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\Logo.ico",
       "PackagePath": "staticwebassets\\Logo.ico"
     },
@@ -165,20 +209,20 @@
       "PackagePath": "staticwebassets\\css\\Contact.css"
     },
     {
-      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\Login.css",
-      "PackagePath": "staticwebassets\\css\\Login.css"
-    },
-    {
-      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\Register.css",
-      "PackagePath": "staticwebassets\\css\\Register.css"
-    },
-    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\css\\bootstrap.min.css"
     },
     {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\elegant-icons.css",
+      "PackagePath": "staticwebassets\\css\\elegant-icons.css"
+    },
+    {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\js\\DeleteModal.js",
@@ -187,10 +231,6 @@
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\js\\LoginPasswordShow.js",
       "PackagePath": "staticwebassets\\js\\LoginPasswordShow.js"
-    },
-    {
-      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\js\\searchCars.js",
-      "PackagePath": "staticwebassets\\js\\searchCars.js"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\js\\site.js",
@@ -327,6 +367,18 @@
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
       "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\lib\\bootstrap\\dist\\css\\font-awesome.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\font-awesome.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\lib\\bootstrap\\dist\\css\\jquery-ui.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\jquery-ui.min.css"
+    },
+    {
+      "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\lib\\bootstrap\\dist\\css\\magnific-popup.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\magnific-popup.css"
     },
     {
       "Id": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",

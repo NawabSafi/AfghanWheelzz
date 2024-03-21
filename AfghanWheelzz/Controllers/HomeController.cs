@@ -98,7 +98,7 @@ namespace AfghanWheelzz.Controllers
         public IActionResult About() => View();
 
       
-
+/*
         public IActionResult Index()
         {
             // Get all cars from the database, ordered by DatePublished in descending order
@@ -120,7 +120,7 @@ namespace AfghanWheelzz.Controllers
 
             // Pass the sorted list of cars to the view
             return View(cars);
-        }
+        }*/
 
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

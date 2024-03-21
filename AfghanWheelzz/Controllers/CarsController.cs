@@ -6,6 +6,8 @@ using AfghanWheelzz.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Globalization;
 using System.Security.Claims;
 using X.PagedList;
 
@@ -44,24 +46,50 @@ namespace AfghanWheelzz.Controllers
 
             return View(cars);
         }
-        public async Task<IActionResult> Index(string searchTerm, int pageNumber = 1, int pageSize = 9)
+        public async Task<IActionResult> Index(string searchTerm, string make, string category, string minPrice, string maxPrice, int pageNumber = 1, int pageSize = 9)
         {
             // Get total count of cars
             var totalCount = _context.Cars.Count();
 
-            // Get cars for the current page
-            var cars = _context.Cars.OrderBy(car => car.DatePublished);
+            // Start with an IQueryable to allow dynamic filtering
+            var cars = _context.Cars.AsQueryable();
 
-            // Filter cars based on search term if provided
+            // Apply filtering based on search term
             if (!string.IsNullOrEmpty(searchTerm))
             {
                 cars = cars.Where(car =>
                     car.Make.ToLower().Contains(searchTerm.ToLower()) ||
                     car.Model.ToLower().Contains(searchTerm.ToLower()) ||
                     car.description.ToLower().Contains(searchTerm.ToLower())
-                ).OrderBy(car => car.DatePublished); // Assuming 'DatePublished' is the property you want to order by
+                );
             }
 
+            // Apply filtering based on make if provided
+            if (!string.IsNullOrEmpty(make))
+            {
+                cars = cars.Where(car => car.Make.ToLower() == make.ToLower());
+            }
+
+            // Apply filtering based on category if provided
+            if (!string.IsNullOrEmpty(category))
+            {
+                // Filter based on the CategoryName property in the Category table
+                cars = cars.Where(car => car.Category.CategoryName.ToLower() == category.ToLower());
+            }
+
+            // Apply filtering based on price range if provided
+            if (!string.IsNullOrEmpty(minPrice) && !string.IsNullOrEmpty(maxPrice))
+            {
+                // Convert minPrice and maxPrice to numeric values
+                var minPriceValue = Convert.ToDecimal(minPrice);
+                var maxPriceValue = Convert.ToDecimal(maxPrice);
+
+                // Filter cars with prices falling within the specified range
+                cars = cars.Where(car => Convert.ToDecimal(car.Price) >= minPriceValue && Convert.ToDecimal(car.Price) <= maxPriceValue);
+            }
+
+            // Apply ordering after filtering
+            cars = cars.OrderBy(car => car.DatePublished);
 
             // Paginate the filtered or unfiltered list of cars
             var pagedCars = await cars.ToPagedListAsync(pageNumber, pageSize);
@@ -89,7 +117,6 @@ namespace AfghanWheelzz.Controllers
             // Pass the paginated list of cars to the view
             return View(pagedCars);
         }
-
 
         /*  [HttpPost]
           public async Task<IActionResult> SearchCars(string searchTerm)

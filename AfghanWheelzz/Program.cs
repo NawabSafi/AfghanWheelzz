@@ -76,27 +76,25 @@ app.MapGet("/", async context =>
         var user = await userManager.FindByEmailAsync("nawab.safi61@gmail.com");
         if (user != null)
         {
+            //Check if Admin Role exist 
             var adminRoleExists = await roleManager.RoleExistsAsync("Admin");
             if (!adminRoleExists)
             {
+                //if not exist create role Admin
                 await roleManager.CreateAsync(new IdentityRole("Admin"));
             }
-
+            //Add Selected User to Admin
             await userManager.AddToRoleAsync(user, "Admin");
 
-            Console.WriteLine("Admin role assigned successfully to nawab.safi61@gmail.com");
 
             // Redirect the response before any content is written
             context.Response.Redirect("/Cars/Index");
             return;
         }
-        else
-        {
-            Console.WriteLine("User nawab.safi61@gmail.com not found.");
-        }
+      
     }
 
-    if (context.User.Identity.IsAuthenticated)
+/*    if (context.User.Identity.IsAuthenticated)
     {
         // If the user is authenticated, redirect to the Cars/Index page
         context.Response.Redirect("/Cars/Index");
@@ -105,7 +103,7 @@ app.MapGet("/", async context =>
     {
         // If not authenticated, redirect to the Home/Index page
         context.Response.Redirect("/Home/Index");
-    }
+    }*/
 });
 
 
