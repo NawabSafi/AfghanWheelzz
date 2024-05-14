@@ -4,45 +4,193 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div id="chart_div_make" style="height: 400px;"></div> <!-- Chart for Cars by Make -->
-        </div>
-        <div class="col-md-6">
-            <div id="chart_div_location" style="height: 400px;"></div> <!-- Chart for Cars by Location -->
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <div id="chart_div_registration" style="height: 400px;"></div> <!-- Chart for Cars by Registration -->
-        </div>
-        <div class="col-md-6">
-            <div id="chart_div_category" style="height: 400px;"></div> <!-- Chart for Cars by Category -->
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewData["Title"]</title>
 
-    <div class="row mt-5">
-        <div class="col-md-4">
-            <div class="card mb-2 shadow-lg p-3">
-                <div class="card-body">
-                    <div class="d-flex align-items-center">
-                        <div class="icon icon-lg icon-shape bg-gradient-primary shadow-primary shadow border-radius-xl mr-3">
-                            <i class="material-icons opacity-10">person</i>
-                        </div>
-                        <div class="text-end">
-                            <p class="text-sm mb-0 text-uppercase">Today's Users</p>
-                            <h4 class="mb-0">@ViewBag.UsersVisitedTodayCount</h4>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/css/adminlte.min.css">
+    <style>
+        /* Style for scrollable table */
+        .table-scrollable {
+            max-height: 400px; /* Adjust the max height as needed */
+            overflow-y: auto;
+        }
+
+            /* Style for table header */
+            .table-scrollable th {
+                position: sticky;
+                top: 0;
+                background-color: #f8f9fa; /* Light gray background */
+                z-index: 1;
+            }
+    </style>
+</head>
+<body class="hold-transition sidebar-mini">
+
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="#" class="brand-link">
+                <span class="brand-text font-weight-light">AfghanWheelzz</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-car"></i>
+                                <p>Cars</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Admin Dashboard</h1>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Cars by Make</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart_div_make" style="height: 400px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Cars by Location</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart_div_location" style="height: 400px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Cars by Registration</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart_div_registration" style="height: 400px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Cars by Category</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div id="chart_div_category" style="height: 400px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                      
+                        <div class="col-md-8">
+                            <div class="card card-primary">
+                                <div class="card-header">Users with Car Counts</div>
+                                <div class="card-body table-scrollable">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" placeholder="Search by Email" id="searchByEmail">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" id="btnSearch">Search</button>
+                                        </div>
+                                    </div>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>User ID</th>
+                                                <th>Email</th>
+                                                <th>Car Count</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="userTableBody">
+                                            @foreach (var user in Model)
+                                            {
+                                                <tr>
+                                                    <td>@user.Id</td>
+                                                    <td>@user.Email</td>
+                                                    <td>@user.CarCount</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- /.content -->
         </div>
 
     </div>
-</div>
+    <!-- ./wrapper -->
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.1.0/js/adminlte.min.js"></script>
 
-@section scripts {
+    <!-- Additional Scripts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', { 'packages': ['corechart'] });
@@ -53,37 +201,115 @@
             var dataByMake = google.visualization.arrayToDataTable(@Html.Raw(Json.Serialize(ViewBag.ChartDataByMake)));
             var optionsByMake = {
                 title: 'Cars by Make',
-                pieHole: 0.4,
+                hAxis: { title: 'Make', titleTextStyle: { color: '#333' } },
+                vAxis: { minValue: 0 },
+                legend: 'none'
             };
-            var chartByMake = new google.visualization.PieChart(document.getElementById('chart_div_make'));
+            var chartByMake = new google.visualization.ColumnChart(document.getElementById('chart_div_make'));
             chartByMake.draw(dataByMake, optionsByMake);
 
             // Chart for Cars by Location
             var dataByLocation = google.visualization.arrayToDataTable(@Html.Raw(Json.Serialize(ViewBag.ChartDataByLocation)));
             var optionsByLocation = {
                 title: 'Cars by Location',
-                pieHole: 0.4,
+                hAxis: { title: 'Location', titleTextStyle: { color: '#333' } },
+                vAxis: { minValue: 0 },
+                legend: 'none'
             };
-            var chartByLocation = new google.visualization.PieChart(document.getElementById('chart_div_location'));
+            var chartByLocation = new google.visualization.ColumnChart(document.getElementById('chart_div_location'));
             chartByLocation.draw(dataByLocation, optionsByLocation);
 
             // Chart for Cars by Registration
             var dataByRegistration = google.visualization.arrayToDataTable(@Html.Raw(Json.Serialize(ViewBag.ChartDataByRegistration)));
             var optionsByRegistration = {
                 title: 'Cars by Registration',
-                pieHole: 0.4,
+                hAxis: { title: 'Registration', titleTextStyle: { color: '#333' } },
+                vAxis: { minValue: 0 },
+                legend: 'none'
             };
-            var chartByRegistration = new google.visualization.PieChart(document.getElementById('chart_div_registration'));
+            var chartByRegistration = new google.visualization.ColumnChart(document.getElementById('chart_div_registration'));
             chartByRegistration.draw(dataByRegistration, optionsByRegistration);
 
             // Chart for Cars by Category
             var dataByCategory = google.visualization.arrayToDataTable(@Html.Raw(Json.Serialize(ViewBag.ChartDataByCategory)));
             var optionsByCategory = {
                 title: 'Cars by Category',
-                pieHole: 0.4,
+                hAxis: { title: 'Category', titleTextStyle: { color: '#333' } },
+                vAxis: { minValue: 0 },
+                legend: 'none'
             };
-            var chartByCategory = new google.visualization.PieChart(document.getElementById('chart_div_category'));
+            var chartByCategory = new google.visualization.ColumnChart(document.getElementById('chart_div_category'));
             chartByCategory.draw(dataByCategory, optionsByCategory);
         }
+
+        var userData = @Html.Raw(Json.Serialize(Model));
+
+        // Initialize arrays for labels and data
+        var userLabels = [];
+        var carCounts = [];
+
+        // Populate labels and data
+        userData.forEach(function (user) {
+            userLabels.push(user.Email);
+            carCounts.push(user.CarCount);
+        });
+
+        // Get canvas element
+        var canvas = document.getElementById('userCarChart');
+
+        // Check if canvas exists before accessing its context
+        if (canvas) {
+            var ctx = canvas.getContext('2d');
+
+            // Create chart
+            var myChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: userLabels,
+                    datasets: [{
+                        label: 'Number of Cars',
+                        data: carCounts,
+                        backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                        borderColor: 'rgba(54, 162, 235, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+
+        // Search functionality
+        document.addEventListener("DOMContentLoaded", function () {
+            var searchButton = document.getElementById("btnSearch");
+            searchButton.addEventListener("click", function () {
+                var searchValue = document.getElementById("searchByEmail").value;
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", "/Account/Dashboard?email=" + searchValue, true);
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        var users = JSON.parse(xhr.responseText);
+                        var userTableBody = document.getElementById("userTableBody");
+                        userTableBody.innerHTML = ""; // Clear existing table rows
+                        users.forEach(function (user) {
+                            var row = "<tr><td>" + user.Id + "</td><td>" + user.Email + "</td><td>" + user.CarCount + "</td></tr>";
+                            userTableBody.insertAdjacentHTML("beforeend", row);
+                        });
+                    } else {
+                        console.error("Request failed with status: " + xhr.status);
+                    }
+                };
+                xhr.onerror = function () {
+                    console.error("Request failed");
+                };
+                xhr.send();
+            });
+        });
     </script>
-}
+</body>
+</html>

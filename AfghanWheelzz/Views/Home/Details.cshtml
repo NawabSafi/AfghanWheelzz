@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="container">
-    <h1 class="text-center mb-4">Car Details</h1>
+    <h1 class="text-center text-white mb-4">Car Details</h1>
 
     <div class="card">
         <div class="card-body">
@@ -15,11 +15,10 @@
 
                 <!-- Car details -->
                 <div class="col-md-6">
-                    <h4 class="text-primary">@Model.Make @Model.Model</h4>
+                    <h4 class="text-primary">@Model.Make | @Model.Model | @ViewBag.Location.City  <i class="fas fa-map-marker-alt mr-2"></i></h4>
                     <hr class="my-4">
                     <dl class="row">
-                        <dt class="col-sm-4"><i class="fas fa-map-marker-alt mr-2"></i>Location</dt>
-                        <dd class="col-sm-8">@ViewBag.Location.City</dd>
+                      
 
                         <dt class="col-sm-4"><i class="far fa-calendar-alt mr-2"></i>Published Date</dt>
                         <dd class="col-sm-8">@Model.DatePublished</dd>
@@ -33,9 +32,11 @@
                         <dt class="col-sm-4"><i class="fas fa-calendar-alt mr-2"></i>Year</dt>
                         <dd class="col-sm-8">@Model.Year</dd>
 
-                        <dt class="col-sm-4"><i class="fas fa-dollar-sign mr-2"></i>Price</dt>
+                        <dt class="col-sm-4"><i class="fas  mr-2"></i>Price</dt>
                         <dd class="col-sm-8">@Model.Price (AFN)</dd>
 
+                        <dt class="col-sm-4"><i class="fas  mr-2"></i>Price in USD</dt>
+                        <dd class="col-sm-8">@ViewBag.CarPriceInUSD $</dd>
                         <dt class="col-sm-4"><i class="fas fa-road mr-2"></i>Mileage</dt>
                         <dd class="col-sm-8">@Model.Mileage (MPG)</dd>
 
@@ -43,7 +44,8 @@
                         <dd class="col-sm-8">@Model.Description</dd>
                     </dl>
                 </div>
-            </div>
+           
+        </div>
         </div>
     </div>
 

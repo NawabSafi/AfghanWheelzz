@@ -9,10 +9,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
 using System;
-using System.Threading.Tasks;
+
 using AfghanWheelzz.Data;
 using AfghanWheelzz.Repository;
 using AfghanWheelzz.Services;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +26,23 @@ builder.Services.AddScoped<ICarService, CarService>();
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("AfghanWheelzDbContext")));
 
+
+//Facebook Login Code
+builder.Services.AddAuthentication().AddFacebook(opt =>
+{
+    opt.ClientId = "1469768550609394";
+    opt.ClientSecret = "fbe19924da27426c430546334dbdf71d";
+
+
+});
+
+
+builder.Services.AddAuthentication().AddGoogle(opt =>
+{
+    opt.ClientId = "907853410742-leacam8aj47kkqi9sh4qtb5iovpb2838.apps.googleusercontent.com";
+    opt.ClientSecret = "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";
+});
+
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     // Configure password requirements, lockout, etc. if needed
@@ -33,11 +52,11 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequiredLength = 8;
 
+    options.SignIn.RequireConfirmedEmail = false;
     options.Lockout.MaxFailedAccessAttempts = 5;
-    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
-
+    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(2);
     options.User.RequireUniqueEmail = true;
-}).AddEntityFrameworkStores<ApplicationDbContext>();
+}).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
 builder.Services.ConfigureApplicationCookie(option =>
 {
     option.AccessDeniedPath = "/Account/Login";

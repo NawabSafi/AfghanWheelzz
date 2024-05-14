@@ -5,6 +5,7 @@ using AfghanWheelzz.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Linq;
 
@@ -16,7 +17,9 @@ namespace AfghanWheelzz.Controllers
         private readonly ApplicationDbContext _context;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ICarRepository _carRepository;
-        private readonly HttpClient _httpClient;
+        private readonly HttpClient _httpClient = new HttpClient();
+        private const string ApiKey = "e0815f700bb6d794ecfe07a7";
+        private const string BaseUrl = "https://api.exchangerate-api.com/v4/latest/USD";
 
         public HomeController(ILogger<HomeController> logger, ApplicationDbContext context, UserManager<ApplicationUser> userManager, ICarRepository carRepository)
         {
@@ -61,6 +64,16 @@ namespace AfghanWheelzz.Controllers
             ViewBag.Registration = Registration;
             ViewBag.Location = Location;
             ViewBag.User= user;
+            var exchangeRate = await GetExchangeRate("AFN"); // Assuming the car price is stored in Afghan Afghani
+            var carPriceNumeric = decimal.Parse(car.Price);
+            var carPriceInUSD = carPriceNumeric / exchangeRate;
+          
+            var roundedPriceInUSD = Math.Round(carPriceInUSD, 2);
+            var formattedPriceInUSD = roundedPriceInUSD.ToString("0.00");
+
+
+            // Pass the converted price to the view
+            ViewBag.CarPriceInUSD = formattedPriceInUSD;
             if (car == null)
             {
                 return NotFound();
@@ -68,7 +81,18 @@ namespace AfghanWheelzz.Controllers
 
             return View(car);
         }
+        private async Task<decimal> GetExchangeRate(string targetCurrency)
+        {
+            var url = $"{BaseUrl}?apikey={ApiKey}";
+            var response = await _httpClient.GetAsync(url);
+            response.EnsureSuccessStatusCode(); // Throws if response is not successful
 
+            var responseBody = await response.Content.ReadAsStringAsync();
+            var exchangeRates = JObject.Parse(responseBody)["rates"];
+            var exchangeRate = (decimal)exchangeRates[targetCurrency];
+
+            return exchangeRate;
+        }
         // Action to display all car makes
         public async Task<IActionResult> CarMakes()
         {
@@ -123,7 +147,6 @@ namespace AfghanWheelzz.Controllers
         }*/
 
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error() => View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+      
     }
 }

@@ -4,72 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-    .custom-card {
-        border: none;
-        background-color: #fff;
-        border-radius: 20px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s;
-        overflow: hidden;
-    }
-
-        .custom-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
-        }
-
-    .card-img-top {
-        border-top-left-radius: 20px;
-        border-top-right-radius: 20px;
-        object-fit: cover;
-        height: 200px;
-    }
-
-    .card-body {
-        padding: 20px;
-    }
-
-    .card-title {
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 10px;
-    }
-
-    .card-text {
-        color: #666;
-        margin-bottom: 20px;
-    }
-
-    .btn {
-        border-radius: 10px;
-        font-weight: bold;
-    }
-
-    .btn-primary {
-        background-color: #427680;
-        border-color: #427680;
-    }
-
-        .btn-primary:hover {
-            background-color: #ff5733;
-            border-color: #ff5733;
-        }
-
-    .btn-danger {
-        background-color: #dc3545;
-        border-color: #dc3545;
-    }
-
-        .btn-danger:hover {
-            background-color: #e45662;
-            border-color: #e45662;
-        }
-</style>
 
 <div class="container mt-5">
-    <h1 class="text-center mb-4">My Listings</h1>
+    <h1 class="text-center mb-4 text-white">My Listings</h1>
     <div class="row">
         @foreach (var car in Model)
         {
@@ -148,5 +85,38 @@
         </div>
     </div>
 </div>
+@section Scripts {
+     <!-- Define the Scripts section -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var deleteButtons = document.querySelectorAll(".delete-btn");
+            var modal = document.getElementById("myModal");
+            var modalTitle = modal.querySelector(".modal-title");
+            var modalBody = modal.querySelector(".modal-body");
+            var confirmDeleteButton = modal.querySelector(".btn-danger");
 
-<script src="~/js/DeleteModal.js"></script>
+            deleteButtons.forEach(function (button) {
+                button.addEventListener("click", function () {
+                    var carId = this.getAttribute("data-id");
+                    modalTitle.textContent = "Delete Car";
+                    modalBody.innerHTML = "<p>Are you sure you want to delete the car with ID " + carId + "?</p>";
+                    confirmDeleteButton.onclick = function () {
+                        fetch('/Cars/Delete/' + carId, {
+                            method: 'POST'
+                        }).then(function (response) {
+                            if (response.ok) {
+                                // Reload the page after successful deletion
+                                window.location.reload();
+                            } else {
+                                console.error('Failed to delete the car.');
+                            }
+                        }).catch(function (error) {
+                            console.error('Error deleting car:', error);
+                        });
+                    };
+                    $('#myModal').modal('show');
+                });
+            });
+        });
+    </script>
+}

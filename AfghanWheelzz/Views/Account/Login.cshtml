@@ -1,35 +1,101 @@
 ﻿@model AfghanWheelzz.ViewModels.LoginViewModel
-
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_LoginRegisterPartial.cshtml";
 }
-<link rel="stylesheet" href="~/css/style.css"/>
-<div class="container extreme-container">
-    <h1 class="extreme-heading">Login</h1>
 
-    <form asp-action="Login" method="post" class="extreme-form">
-        <div class="form-group">
-            <label asp-for="Email">Email</label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
+<!-- Navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <div class="container">
+            <!-- Navbar Brand -->
+            <a href="#" class="navbar-brand">
+                <h2>AfghanWheelzz</h2>
+            </a>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+        <!-- For Demo Purpose -->
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+            <img src="https://bootstrapious.com/i/snippets/sn-registeration/illustration.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+
         </div>
 
-        <div class="form-group">
-            <label asp-for="Password">Password</label>
-            <input asp-for="Password" type="password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span><br />
+        <!-- Display model state errors -->
+        @if (!ViewData.ModelState.IsValid)
+        {
+            <div class="col-md-7 col-lg-6 ml-auto">
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                        {
+                            <li>@error.ErrorMessage</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
 
-            <input type="checkbox" onclick="myFunction()"> Show Password
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <h1>Login to Your Account</h1>
+            <form asp-action="Login" method="post" class="extreme-form">
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Password</label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span><br />
+                    <input type="checkbox" onclick="PasswordShow()"> Show Password
+                </div>
+                <div class="form-group form-check">
+                    <input asp-for="RememberMe" class="form-check-input" />
+                    <label class="form-check-label" asp-for="RememberMe">Remember me</label>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
+            </form>
         </div>
+    </div>
+    <!-- Divider Text -->
+    <div class="form-group col-lg-12 mx-auto d-flex align-items-center my-4">
+        <div class="border-bottom w-100 ml-5"></div>
+        <span class="px-2 small text-muted font-weight-bold text-muted">OR</span>
+        <div class="border-bottom w-100 mr-5"></div>
+    </div>
 
-        <div class="form-group form-check">
-            <input asp-for="RememberMe" class="form-check-input" />
-            <label class="form-check-label" asp-for="RememberMe">Remember me</label>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-lg">Login</button>
-    </form>
+    <div class="col-md-6">
+        @{
+            if (Model.ExternalLogins.Count == 0)
+            {
+                <div>No External Login Configured</div>
+            }
+            else
+            {
+                <form method="post" asp-action="ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl">
+                    <div>
+                        @foreach (var provider in Model.ExternalLogins)
+                        {
+                            <button type="submit" class="btn btn-primary btn-md btn-block mb-3" name="provider" value="@provider.Name" title="Login using your @provider.DisplayName Account">
+                                Countinue With  @provider.DisplayName
+                            </button>
+                        }
+                    </div>
+                </form>
+            }
+        }
+    </div>
 </div>
-
-<script src="~/js/LoginPasswordShow.js"></script>
+<script>
+    function PasswordShow() {
+        var x = document.getElementById("Password");
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+    }</script>

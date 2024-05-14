@@ -6,6 +6,7 @@ using AfghanWheelzz.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration.UserSecrets;
 using Microsoft.IdentityModel.Tokens;
 using System.Globalization;
 using System.Security.Claims;
@@ -59,10 +60,16 @@ namespace AfghanWheelzz.Controllers
             {
                 cars = cars.Where(car =>
                     car.Make.ToLower().Contains(searchTerm.ToLower()) ||
-                    car.Model.ToLower().Contains(searchTerm.ToLower()) ||
-                    car.description.ToLower().Contains(searchTerm.ToLower())
+                    car.Model.ToLower().Contains(searchTerm.ToLower())
                 );
             }
+
+
+            if (!string.IsNullOrEmpty(make))
+            {
+                cars = cars.Where(car => car.Make.ToLower() == make.ToLower());
+            }
+
 
             // Apply filtering based on make if provided
             if (!string.IsNullOrEmpty(make))
@@ -183,7 +190,8 @@ namespace AfghanWheelzz.Controllers
                     }
 
                     carViewModel.ImagePath = Path.Combine("Images", "cars", fileName);
-
+                    var user = await _userManager.FindByIdAsync(userId);
+                    user.CarCount+=1;
                     await _carRepository.AddCarAsync(carViewModel, userId);
 
                     return RedirectToAction(nameof(Index));
@@ -193,7 +201,7 @@ namespace AfghanWheelzz.Controllers
             {
                 ModelState.AddModelError(string.Empty, $"An error occurred: {ex.Message}");
             }
-
+            
             return View(carViewModel);
         }
 

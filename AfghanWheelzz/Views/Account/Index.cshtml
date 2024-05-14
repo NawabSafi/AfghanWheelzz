@@ -1,132 +1,82 @@
-﻿@model AfghanWheelzz.Models.UserModels.ApplicationUser
-@{
-    ViewData["Title"] = "User Detail";
-}
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>User Details</title>
- 
-    <style>
-        body {
-            background-color: #f8f9fa;
-            font-family: Arial, sans-serif;
-        }
-
-        .container {
-            max-width: 800px;
-         
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin: 50px auto;
-        }
-
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;e2
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .form-control {
-            border-radius: 10px;
-        }
-
-        .labels {
-            font-weight: bold;
-            color: #333;
-        }
-
-        .profile-button {
-            border-radius: 10px;
-            padding: 10px 30px;
-            font-weight: bold;
-            background-color: #007bff;
-            border: none;
-            color: #fff;
-            transition: background-color 0.3s;
-        }
-
-            .profile-button:hover {
-                background-color: #0056b3;
-            }
-    </style>
-</head>
-<link rel="stylesheet" href="~/css/UserIndex.css">
-    <div class="container rounded bg-white mt-5 mb-5">
-        <div class="row">
-            <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                    @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
-                    {
-                        <img src="~/@Model.ProfilePicturePath" alt="Profile Picture" class="img-fluid">
-                    }
-                    else
-                    {
-                        <p>No profile picture available</p>
-                    }
-
+﻿<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+            <!-- Profile Picture and User Info -->
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
+                {
+                    <img src="~/@Model.ProfilePicturePath" alt="Profile Picture" class="img-fluid">
+                }
+                else
+                {
+                    <p>No profile picture available</p>
+                }
                 <span class="font-weight-bold"><strong>@Model.FirstName @Model.LastName</strong></span>
-                
-
-                </div>
             </div>
-        @if (User.IsInRole("Admin"))
-        {
-            <a href="@Url.Action("Dashboard", "Account")" class="btn btn-primary mt-3">Dashboard</a>
-        }
-            <div class="col-md-9">
-                <div class="p-3 py-5">
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="text-right">Profile Settings</h4>
-                    </div>
-                    <form method="post" asp-controller="Account" asp-action="UpdateProfile" class="needs-validation" novalidate>
-                        <div class="row mt-2">
-                            <div class="col-md-6">
-                                <label class="labels">First Name</label>
-                                <input type="text" class="form-control" placeholder="First Name" value="@Model.FirstName" name="FirstName" required>
-                                <div class="invalid-feedback">
-                                    First Name is required.
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="labels">Last Name</label>
-                                <input type="text" class="form-control" value="@Model.LastName" placeholder="Last Name" name="LastName" required>
-                                <div class="invalid-feedback">
-                                    Last Name is required.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row mt-3">
-                            <div class="col-md-12">
-                                <label class="labels">Email</label>
-                                <input type="email" class="form-control" placeholder="Email" value="@Model.Email" name="Email" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid email.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label class="labels">Phone Number</label>
-                                <input type="text" class="form-control" placeholder="Phone Number" value="@Model.PhoneNumber" name="PhoneNumber" required>
-                                <div class="invalid-feedback">
-                                    Phone Number is required.
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <label class="labels">Address</label>
-                                <input type="text" class="form-control" placeholder="Address" value="@Model.Address" name="Address" required>
-                                <div class="invalid-feedback">
-                                    Address is required.
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-5 text-center">
-                            <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
-                        </div>
-                    </form>
+        </div>
+    
+        <div class="col-md-9">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
                 </div>
+                <!-- Form for Profile Update -->
+                <form method="post" asp-controller="Account" asp-action="UpdateProfile" enctype="multipart/form-data" class="needs-validation" novalidate>
+                    <!-- Display Alert for Email Cannot be Changed -->
+                    <div class="alert alert-warning" role="alert">
+                        Note: You cannot change your email address.
+                    </div>
+                    <!-- Input Fields for Profile Details -->
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">First Name</label>
+                            <input type="text" class="form-control" placeholder="First Name" value="@Model.FirstName" name="FirstName" required>
+                            <div class="invalid-feedback">
+                                First Name is required.
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Last Name</label>
+                            <input type="text" class="form-control" value="@Model.LastName" placeholder="Last Name" name="LastName" required>
+                            <div class="invalid-feedback">
+                                Last Name is required.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">Email</label>
+                            <input type="email" class="form-control" placeholder="Email" value="@Model.Email" name="Email" required disabled>
+                            <div class="invalid-feedback">
+                                Please provide a valid email.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Phone Number</label>
+                            <input type="text" class="form-control" placeholder="Phone Number" value="@Model.PhoneNumber" name="PhoneNumber" required>
+                            <div class="invalid-feedback">
+                                Phone Number is required.
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Address</label>
+                            <input type="text" class="form-control" placeholder="Address" value="@Model.Address" name="Address" required>
+                            <div class="invalid-feedback">
+                                Address is required.
+                            </div>
+                        </div>
+                        <!-- Profile Picture Upload -->
+                        <div class="col-md-12 mt-3">
+                            <label class="labels">Profile Picture</label>
+                            <input type="file" class="form-control-file" name="ProfilePicture" accept="image/*">
+                        </div>
+                    </div>
+                    <!-- Save Button -->
+                    <div class="mt-5 text-center">
+                        <button class="btn btn-primary profile-button" type="submit">Save Profile</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
-
+</div>

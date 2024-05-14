@@ -1,0 +1,257 @@
+body {
+    position: relative; /* Ensure body is relative */
+    background-image: url('/Images/bg-1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+/* Adjustments to the hero section */
+.hero {
+    position: relative;
+    background-size: cover;
+    padding: 150px 0;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero__text__title span,
+.hero__text__title h2 {
+    color: #fff;
+    font-family: 'Roboto Slab', serif;
+    animation: fadeInUp 1.5s ease forwards; /* Add animation to title and span */
+}
+/* Add this to your CSS file or within style tags in your HTML */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+}
+
+.fadeIn {
+    animation-name: fadeIn;
+}
+
+.slideInDown {
+    animation-name: slideInDown;
+}
+
+.hero__text__title span {
+    font-size: 36px;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.hero__text__title h2 {
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.hero__text p {
+    color: #fff;
+    font-size: 20px;
+    line-height: 1.6;
+    animation: fadeInUp 1.5s ease forwards; /* Add animation to text */
+}
+
+.hero__tab {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    animation: fadeInRight 1.5s ease forwards; /* Add animation to hero tab */
+}
+
+    .hero__tab h2 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+.custom-form .form-group {
+    margin-bottom: 20px;
+}
+
+.custom-form .form-control {
+    border-radius: 4px;
+    border-color: #ccc;
+}
+
+/* Adjustments to the gallery section */
+.gallery-item {
+    margin-bottom: 20px;
+}
+
+.gallery-img {
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+    .gallery-img:hover {
+        transform: scale(1.05);
+    }
+
+/* Animation Keyframes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Increase left and right margins */
+.container {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 2000px; /* Adjust max-width as needed */
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Adjust padding and font size for form controls */
+.form-control {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+/* Adjust height and padding for select form controls */
+select.form-control {
+    height: 50px;
+    padding-left: 0.5rem;
+}
+
+/* Show pointer cursor on hover for social login buttons */
+.btn-facebook,
+.btn-twitter {
+    cursor: pointer;
+}
+
+    /* Add hover and focus effects for social login buttons */
+    .btn-facebook:hover,
+    .btn-facebook:focus,
+    .btn-twitter:hover,
+    .btn-twitter:focus {
+        opacity: 0.8;
+    }
+/* Footer styling */
+.center-footer {
+    position: fixed; /* Fixed position to stick to bottom */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: #007bff; /* Change background color as needed */
+    padding: 10px 0; /* Adjust padding as needed */
+    z-index: 100; /* Ensure footer is on top of other content */
+}
+
+    /* Additional styles for footer content */
+    .center-footer p {
+        color: #ffffff; /* Text color */
+        font-size: 14px; /* Font size */
+    }
+
+/* Ensure the body has some padding at the bottom to prevent content from being hidden under the footer */
+body {
+    padding-bottom: 60px; /* Adjust according to footer height */
+}
+
+
+
+
+/* Custom styles for the card view */
+.car-card {
+    border: none;
+    transition: transform 0.3s;
+}
+
+    .car-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+.car-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ffcc00; /* Yellow */
+    color: #000;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.car-details strong {
+    color: #007bff; /* Blue */
+}
+
+.detail-btn {
+    background-color: #007bff; /* Blue */
+    color: #fff;
+    border: 2px solid #007bff; /* Blue */
+    transition: background-color 0.3s;
+}
+
+    .detail-btn:hover {
+        background-color: #0056b3; /* Darker blue */
+        border-color: #0056b3; /* Darker blue */
+    }
+
+
+

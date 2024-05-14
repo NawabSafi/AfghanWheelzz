@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Authentication;
+using System.ComponentModel.DataAnnotations;
 
 namespace AfghanWheelzz.ViewModels
 {
@@ -12,5 +13,7 @@ namespace AfghanWheelzz.ViewModels
         public string? Password { get; set; }
         [Display(Name ="RememberMe")]
         public bool RememberMe { get; set; }
+        public string? ReturnUrl { get; set; }
+        public IList<AuthenticationScheme>? ExternalLogins { get; set; }
     }
 }

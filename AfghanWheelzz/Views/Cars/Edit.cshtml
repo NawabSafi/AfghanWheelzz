@@ -6,43 +6,43 @@
 }
 
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Edit Car</h1>
+    <h1 class="text-center mb-4 text-white">Edit Car</h1>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form method="post" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
-                    <label asp-for="Make" class="control-label">Make</label>
+                    <label asp-for="Make" class="control-label text-white">Make</label>
                     <input asp-for="Make" class="form-control" />
                     <span asp-validation-for="Make" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Model" class="control-label">Model</label>
+                    <label asp-for="Model" class="control-label text-white">Model</label>
                     <input asp-for="Model" class="form-control" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Year" class="control-label">Year</label>
+                    <label asp-for="Year" class="control-label text-white">Year</label>
                     <input asp-for="Year" class="form-control" />
                     <span asp-validation-for="Year" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Price" class="control-label">Price</label>
+                    <label asp-for="Price" class="control-label text-white">Price</label>
                     <input asp-for="Price" class="form-control" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Mileage" class="control-label">Mileage</label>
+                    <label asp-for="Mileage" class="control-label text-white">Mileage</label>
                     <input asp-for="Mileage" class="form-control" />
                     <span asp-validation-for="Mileage" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Description" class="control-label">Description</label>
+                    <label asp-for="Description" class="control-label text-white">Description</label>
                     <textarea asp-for="Description" class="form-control"></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="File" class="control-label">Image</label>
+                    <label asp-for="File" class="control-label text-white">Image</label>
                     <input asp-for="File" type="file" class="form-control" />
                     <span asp-validation-for="File" class="text-danger"></span>
                 </div>
@@ -54,4 +54,3 @@
         </div>
     </div>
 </div>
-s

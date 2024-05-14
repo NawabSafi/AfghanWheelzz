@@ -1,12 +1,4 @@
-﻿/*  ---------------------------------------------------
-    Template Name: HVAC
-    Description: HVAC Car Dealer HTML Template
-    Author: Colorlib
-    Author URI: https://www.colorlib.com
-    Version: 1.0
-    Created: Colorlib
----------------------------------------------------------  */
-
+﻿
 'use strict';
 
 (function ($) {
@@ -18,18 +10,6 @@
         $(".loader").fadeOut();
         $("#preloder").delay(200).fadeOut("slow");
 
-        /*------------------
-            Car filter
-        --------------------*/
-        $('.filter__controls li').on('click', function () {
-            $('.filter__controls li').removeClass('active');
-            $(this).addClass('active');
-        });
-        if ($('.car-filter').length > 0) {
-            var containerEl = document.querySelector('.car-filter');
-            var mixer = mixitup(containerEl);
-        }
-    });
 
     /*------------------
         Background Set
@@ -50,106 +30,74 @@
         $(".offcanvas-menu-overlay").removeClass("active");
     });
 
-    //Search Switch
-    $('.search-switch').on('click', function () {
-        $('.search-model').fadeIn(400);
-    });
 
-    $('.search-close-switch').on('click', function () {
-        $('.search-model').fadeOut(400, function () {
-            $('#search-input').val('');
-        });
-    });
-
-    /*------------------
-        Navigation
-    --------------------*/
-    $(".header__menu").slicknav({
-        prependTo: '#mobile-menu-wrap',
-        allowParentLinks: true
-    });
-
-    /*--------------------------
-        Testimonial Slider
-    ----------------------------*/
-    $(".car__item__pic__slider").owlCarousel({
-        loop: true,
-        margin: 0,
-        items: 1,
-        dots: true,
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: false
-    });
 
  
-    /*-----------------------------
-        Car thumb Slider
-    -------------------------------*/
-    $(".car__thumb__slider").owlCarousel({
-        loop: true,
-        margin: 25,
-        items: 5,
-        dots: false,
-        smartSpeed: 1200,
-        autoHeight: false,
-        autoplay: true,
-        mouseDrag: false,
-        responsive: {
-
-            768: {
-                items: 5
-            },
-            320: {
-                items: 3
-            },
-            0: {
-                items: 2
-            }
-        }
-    });
 
   
   
-    /*--------------------------
-        Select
-    ----------------------------*/
-    $("select").niceSelect();
-
-    /*------------------
-        Magnific
-    --------------------*/
-    $('.video-popup').magnificPopup({
-        type: 'iframe'
-    });
-
-    /*------------------
-        Single Product
-    --------------------*/
-    $('.car-thumbs-track .ct').on('click', function () {
-        $('.car-thumbs-track .ct').removeClass('active');
-        var imgurl = $(this).data('imgbigurl');
-        var bigImg = $('.car-big-img').attr('src');
-        if (imgurl != bigImg) {
-            $('.car-big-img').attr({
-                src: imgurl
-            });
-        }
-    });
-
-    /*------------------
-        Counter Up
-    --------------------*/
-    $('.counter-num').each(function () {
-        $(this).prop('Counter', 0).animate({
-            Counter: $(this).text()
-        }, {
-            duration: 4000,
-            easing: 'swing',
-            step: function (now) {
-                $(this).text(Math.ceil(now));
-            }
-        });
-    });
 
 })(jQuery);
+function ConfrimPasswordShow() {
+    var x = document.getElementById("ConfirmPassword");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+
+
+function PasswordShow() {
+    var x = document.getElementById("Password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+
+//function Car Delete
+document.addEventListener("DOMContentLoaded", function () {
+    var deleteButtons = document.querySelectorAll(".delete-btn");
+    var modal = document.getElementById("myModal");
+    var modalTitle = modal.querySelector(".modal-title");
+    var modalBody = modal.querySelector(".modal-body");
+    var confirmDeleteButton = modal.querySelector(".btn-danger");
+
+    deleteButtons.forEach(function (button) {
+        button.addEventListener("click", function () {
+            var carId = this.getAttribute("data-id");
+            modalTitle.textContent = "Delete Car";
+            modalBody.innerHTML = "<p>Are you sure you want to delete the car with ID " + carId + "?</p>";
+            confirmDeleteButton.onclick = function () {
+                fetch('/Cars/Delete/' + carId, {
+                    method: 'POST'
+                }).then(function (response) {
+                    if (response.ok) {
+                        // Reload the page after successful deletion
+                        window.location.reload();
+                    } else {
+                        console.error('Failed to delete the car.');
+                    }
+                }).catch(function (error) {
+                    console.error('Error deleting car:', error);
+                });
+            };
+            $('#myModal').modal('show');
+        });
+    });
+});
+
+
+document.getElementById("postAddButton").addEventListener("click", function (event) {
+    // Check if the user is authenticated
+    var isAuthenticated = '@User.Identity.IsAuthenticated';
+    console.log(isAuthenticated);
+    // If the user is not authenticated, show an alert and prevent the default action
+    if (isAuthenticated != 'True') {
+        alert("Please login to post a car.");
+        event.preventDefault(); // Prevent the default action (redirecting to the listing page)
+    }
+});

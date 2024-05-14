@@ -1,15 +1,24 @@
 ﻿using AfghanWheelzz.Data;
+using AfghanWheelzz.Models;
 using AfghanWheelzz.Models.UserModels;
 using AfghanWheelzz.ViewModels;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Emit;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace AfghanWheelzz.Controllers.Authentication
 {
@@ -19,13 +28,16 @@ namespace AfghanWheelzz.Controllers.Authentication
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<AccountController> _logger;
+        
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IWebHostEnvironment webHostEnvironment, ApplicationDbContext context)
+        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, IWebHostEnvironment webHostEnvironment, ApplicationDbContext context, ILogger<AccountController> logger)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _webHostEnvironment = webHostEnvironment;
             _context = context;
+            _logger = logger;
         }
 
         [Authorize] // Restrict access to authenticated users
@@ -69,7 +81,8 @@ namespace AfghanWheelzz.Controllers.Authentication
                     UserName = model.Email,
                     Email = model.Email,
                     PhoneNumber = model.PhoneNumber,
-                    Address = model.Address
+                    Address = model.Address,
+                    DateCreated = DateTime.Now
                 };
 
                 // Handle profile picture
@@ -96,10 +109,11 @@ namespace AfghanWheelzz.Controllers.Authentication
                 }
 
                 var result = await _userManager.CreateAsync(newUser, model.Password);
+
                 if (result.Succeeded)
                 {
-                    await _signInManager.SignInAsync(newUser, isPersistent: false);
-                    return RedirectToAction("Index", "Home");
+                    // Redirect to login page after successful registration
+                    return RedirectToAction("Login", "Account");
                 }
                 else
                 {
@@ -107,58 +121,199 @@ namespace AfghanWheelzz.Controllers.Authentication
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
+                    return View(model);
                 }
             }
+
             return View(model);
         }
 
-        public IActionResult Login()
+     
+        // Example of populating ExternalLogins in the controller action
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(string returnUrl)
         {
-            return View();
+
+            LoginViewModel model = new()
+            {
+                ReturnUrl = returnUrl,
+                ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
+           
+
+            return View(model);
         }
 
+
+        [AllowAnonymous]
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginViewModel model)
+        public IActionResult ExternalLogin(string provider, string returnUrl)
         {
-            if (ModelState.IsValid)
+            
+            var redirectUrl = Url.Action(action: "ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl });
+
+            // Configure the redirect URL, provider and other properties
+            var properties = _signInManager.ConfigureExternalAuthenticationProperties(provider, redirectUrl);
+
+            //This will redirect the user to the external provider's login page
+            return new ChallengeResult(provider, properties);
+        }
+        [AllowAnonymous]
+        public async Task<IActionResult> ExternalLoginCallback(string returnUrl = null, string remoteError = null)
+        {
+            returnUrl = returnUrl ?? Url.Content("~/");
+
+            var loginViewModel = new LoginViewModel
             {
-                ApplicationUser user = await _userManager.FindByNameAsync(model.Email);
+                ReturnUrl = returnUrl,
+                ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList()
+            };
 
-                if (user == null)
+            if (remoteError != null)
+            {
+                ModelState.AddModelError(string.Empty, $"Error from external provider: {remoteError}");
+                return View("Login", loginViewModel);
+            }
+
+            var info = await _signInManager.GetExternalLoginInfoAsync();
+            if (info == null)
+            {
+                ModelState.AddModelError(string.Empty, "Error loading external login information.");
+                return View("Login", loginViewModel);
+            }
+
+            var email = info.Principal.FindFirstValue(ClaimTypes.Email);
+            if (email == null)
+            {
+                ModelState.AddModelError(string.Empty, "Email claim not received from external provider.");
+                return View("Login", loginViewModel);
+            }
+
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user != null )
+            {
+               
+                
+                    // If the user exists, sign them in and redirect to the appropriate page
+                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    return LocalRedirect(returnUrl);
+                
+            }
+            else
+            {
+                // Create a new user with the information provided by the external provider
+                var newUser = new ApplicationUser
                 {
-                    ModelState.AddModelError(string.Empty, "Email Not Found");
-                    return View(model);
-                }
+                    UserName = email,
+                    Email = email,
+                    FirstName = info.Principal.FindFirstValue(ClaimTypes.GivenName),
+                    LastName = info.Principal.FindFirstValue(ClaimTypes.Surname),
+                    // Additional fields if needed
+                };
 
-                if (await _userManager.CheckPasswordAsync(user, model.Password) == false)
-                {
-                    ModelState.AddModelError(string.Empty, "Invalid Credentials");
-                    return View(model);
-                }
-
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
-
+                // Save user data
+                var result = await _userManager.CreateAsync(newUser);
                 if (result.Succeeded)
                 {
-                    // Update LastLogin property
-                    user.LastLogin = DateTime.Now;
-                    await _userManager.UpdateAsync(user);
+                    // Add a login (i.e., insert a row for the user in AspNetUserLogins table)
+                    await _userManager.AddLoginAsync(newUser, info);
 
-                    return RedirectToAction("Index", "Home"); // Change the redirect action and controller as needed
+                    // Sign in the user
+                    await _signInManager.SignInAsync(newUser, isPersistent: false);
+                    return LocalRedirect(returnUrl);
                 }
+                else
+                {
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+                    return View("Login", loginViewModel);
+                }
+            }
+        }
 
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+      [HttpPost]
+[ValidateAntiForgeryToken]
+[AllowAnonymous]
+public async Task<IActionResult> Login(LoginViewModel model)
+{
+    model.ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+    if (ModelState.IsValid)
+    {
+        // Find user by email
+        ApplicationUser user = await _userManager.FindByEmailAsync(model.Email);
+
+        if (user != null)
+        {
+            /* if (!user.EmailConfirmed)
+            {
+                ModelState.AddModelError(string.Empty, "Email not confirmed yet");
+                return View(model);
+            }*/
+
+            // Check if the user is locked out
+            if (await _userManager.IsLockedOutAsync(user))
+            {
+                ModelState.AddModelError(string.Empty, "Account locked out. Please try again later.");
+                return View(model);
             }
 
-            // If we reach here, something went wrong, redisplay the form
+            // Check if the provided password is correct
+            var result = await _signInManager.PasswordSignInAsync(user, model.Password, model.RememberMe, lockoutOnFailure: true);
+             user.LastLogin = DateTime.Now;
+            if (result.Succeeded)
+            {
+                if (!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
+                {
+                    return Redirect(model.ReturnUrl); // Redirect to the returnUrl if it's provided and is a local URL
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home"); // Redirect to a default action if returnUrl is null or not a local URL
+                }
+                
+            }
+            else
+            {
+                        // If login failed, increment access failed count
+                        // If login failed, increment access failed count
+                        await _userManager.AccessFailedAsync(user);
+
+                        // Check if the user is locked out after the failed attempt
+                        var failedAttempts = await _userManager.GetAccessFailedCountAsync(user);
+                        if (failedAttempts >= _userManager.Options.Lockout.MaxFailedAccessAttempts)
+                        {
+                            // Lock the user out
+                            await _userManager.SetLockoutEndDateAsync(user, DateTimeOffset.UtcNow.Add(_userManager.Options.Lockout.DefaultLockoutTimeSpan));
+                            // Additional logic if needed
+                        }
+
+                        // Check if the user is locked out after the failed attempt
+                        if (await _userManager.IsLockedOutAsync(user))
+                {
+                    ModelState.AddModelError(string.Empty, "Account locked out. Please try again later.");
+                    return View(model);
+                }
+            }
+        }
+        else
+        {
+            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
             return View(model);
         }
+    }
+
+    // If we reach here, something went wrong, redisplay the form
+    return View(model);
+}
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize] // Restrict access to authenticated users
-        public async Task<IActionResult> UpdateProfile(ApplicationUser model)
+        public async Task<IActionResult> UpdateProfile(ApplicationUser model, IFormFile profilePicture)
         {
             if (!ModelState.IsValid)
             {
@@ -175,14 +330,40 @@ namespace AfghanWheelzz.Controllers.Authentication
             // Update user details
             user.FirstName = model.FirstName;
             user.LastName = model.LastName;
-            user.Email = model.Email;
             user.PhoneNumber = model.PhoneNumber;
             user.Address = model.Address; // Add this line if you also want to update the address
+
+            // Handle profile picture
+            if (profilePicture != null)
+            {
+                // Delete existing profile picture if any
+                if (!string.IsNullOrEmpty(user.ProfilePicturePath))
+                {
+                    string wwwRootPath = _webHostEnvironment.WebRootPath;
+                    string filePath = Path.Combine(wwwRootPath, user.ProfilePicturePath.TrimStart('~', '/'));
+                    if (System.IO.File.Exists(filePath))
+                    {
+                        System.IO.File.Delete(filePath);
+                    }
+                }
+
+                // Save new profile picture
+                string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "Images", "ProfilePictures");
+                string uniqueFileName = Guid.NewGuid().ToString() + "_" + profilePicture.FileName;
+                string filePathToSave = Path.Combine(uploadsFolder, uniqueFileName);
+                using (var stream = new FileStream(filePathToSave, FileMode.Create))
+                {
+                    await profilePicture.CopyToAsync(stream);
+                }
+
+                user.ProfilePicturePath = Path.Combine("Images", "ProfilePictures", uniqueFileName);
+            }
 
             var result = await _userManager.UpdateAsync(user);
 
             if (result.Succeeded)
             {
+
                 // Redirect back to the profile details page with the updated user
                 return RedirectToAction("Index", user);
             }
@@ -198,26 +379,35 @@ namespace AfghanWheelzz.Controllers.Authentication
             }
         }
 
-        public async Task<IActionResult> Dashboard()
+
+        public async Task<IActionResult> Dashboard(string? email)
         {
             try
             {
-                var users = await _userManager.Users.ToListAsync();
-
                 var usersWithCarCounts = new List<ApplicationUser>();
 
-                DateTime today = DateTime.Today;
+                var query = _userManager.Users.AsQueryable();
+
+                if (!string.IsNullOrEmpty(email))
+                {
+                    query = query.Where(u => u.Email.Contains(email));
+                }
+
+                var users = await query.ToListAsync();
+
+                DateTime today = DateTime.Now;
                 var usersVisitedTodayCount = await _context.Users
                     .Where(u => u.LastLogin.Date == today)
                     .CountAsync();
 
                 // Pass the count to the view
                 ViewBag.UsersVisitedTodayCount = usersVisitedTodayCount;
+
                 // Find the user by Id
                 foreach (var user in users)
                 {
-                    var carCount = await _context.Cars.CountAsync(c => c.UserId == user.Id);
-                    user.CarCount = carCount; // Add a CarCount property to ApplicationUser model
+                    var userCarCount = await _context.Cars.CountAsync(c => c.UserId == user.Id);
+                    user.CarCount = userCarCount; // Add a CarCount property to ApplicationUser model
                     usersWithCarCounts.Add(user);
                 }
 
@@ -234,10 +424,10 @@ namespace AfghanWheelzz.Controllers.Authentication
                     })
                     .ToListAsync();
 
-                var carsByRegistration = await _context.Registrations
-                    .GroupBy(r => r.RegistrationName)
-                    .Select(g => new { RegistrationType = g.Key, CarCount = g.Count() })
-                    .ToListAsync();
+                var carsByRegistration = await _context.Cars
+                  .GroupBy(c => c.Registration.RegistrationName != null ? c.Registration.RegistrationName : "Unregistered")
+                  .Select(g => new { RegistrationType = g.Key, CarCount = g.Count() })
+                  .ToListAsync();
 
                 var carsByCategory = await _context.Categories
                     .Select(c => new

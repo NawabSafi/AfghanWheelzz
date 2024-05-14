@@ -2,35 +2,23 @@
     ViewData["Title"] = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<link rel="stylesheet" href="~/css/Contact.css"/>
+<html>
+<body>
 <div class="container extreme-container">
     <div class="row">
         <div class="col-md-6">
-            <h1 class="extreme-heading">Contact Us</h1>
+            <h1 class="extreme-heading text-white">Contact Us</h1>
             <div class="extreme-content">
-                <p>This is the contact page content.</p>
-                <p>For any inquiries or assistance, please feel free to contact us using the information provided below:</p>
+                <p class="text-white">Contact US.</p>
+                <p class="text-white">For any inquiries or assistance, please feel free to contact us using the information provided below:</p>
                 <ul>
-                    <li>Phone Number: 0348-1534035</li>
-                    <li>Email: <a href="mailto:nawab.safi61@gmail.com">nawab.safi61@gmail.com</a></li>
+                    <li class="text-white">Phone Number: 0348-1534035</li>
+                    <li class="text-white">Email: <a href="mailto:nawab.safi61@gmail.com">nawab.safi61@gmail.com</a></li>
                 </ul>
             </div>
         </div>
-        <div class="col-md-6">
-            <h2 class="extreme-heading">Contact Form</h2>
-            <form action="@Url.Action("SendEmail", "Home")" method="post" class="extreme-form">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="form-group">
-                    <textarea class="form-control" id="message" name="message" rows="4" placeholder="Message" required></textarea>
-                </div>
-                <button type="submit" class="btn">Submit</button>
-            </form>
-        </div>
+       
     </div>
 </div>
+</body>
+</html>
