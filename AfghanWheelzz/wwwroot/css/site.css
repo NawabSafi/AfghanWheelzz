@@ -4,6 +4,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    margin-bottom: 60px;
 }
 
 
@@ -164,35 +165,6 @@ select.form-control {
     cursor: pointer;
 }
 
-    /* Add hover and focus effects for social login buttons */
-    .btn-facebook:hover,
-    .btn-facebook:focus,
-    .btn-twitter:hover,
-    .btn-twitter:focus {
-        opacity: 0.8;
-    }
-/* Footer styling */
-.center-footer {
-    position: fixed; /* Fixed position to stick to bottom */
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    background-color: #007bff; /* Change background color as needed */
-    padding: 10px 0; /* Adjust padding as needed */
-    z-index: 100; /* Ensure footer is on top of other content */
-}
-
-    /* Additional styles for footer content */
-    .center-footer p {
-        color: #ffffff; /* Text color */
-        font-size: 14px; /* Font size */
-    }
-
-/* Ensure the body has some padding at the bottom to prevent content from being hidden under the footer */
-body {
-    padding-bottom: 60px; /* Adjust according to footer height */
-}
 
 
 
@@ -253,5 +225,33 @@ body {
         border-color: #0056b3; /* Darker blue */
     }
 
+/* Footer CSS */
+.footer {
+    padding: 20px 0;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
 
+.social-media-icons {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
 
+    .social-media-icons li {
+        display: inline-block;
+        margin-right: 10px;
+    }
+
+        .social-media-icons li:last-child {
+            margin-right: 0;
+        }
+
+    .social-media-icons a {
+        color: #fff;
+        font-size: 20px;
+    }
+
+        .social-media-icons a:hover {
+            color: #ccc;
+        }

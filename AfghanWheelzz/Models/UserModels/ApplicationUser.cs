@@ -12,5 +12,6 @@ namespace AfghanWheelzz.Models.UserModels
         public DateTime DateCreated { get; set; }
         public int CarCount { get; set; }
         public ICollection<Car>? Cars { get; set; }
+        public ICollection<Wishlist> Wishlists { get; set; }
     }
 }

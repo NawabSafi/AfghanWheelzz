@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5NfBsmZDLhTVZwTO1V2124yl3EjQY9BLInrVlhF0vkeRucu4nwmTynXiKDNwFqG1u4NqQyIKleruQcEIfWG8qQ==",
+  "dgSpecHash": "58vqfE+LDVyeE5XyxpN0QfijXxljE+qp8Y9cjERZT4+wQwgaICZ4PkbtvdSYAm7aBn/kmIRl+6tHqKwJBYQh/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
+  "projectFilePath": "C:\\Users\\Safi\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Safi\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Safi\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

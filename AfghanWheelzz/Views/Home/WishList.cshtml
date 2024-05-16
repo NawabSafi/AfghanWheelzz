@@ -1,0 +1,35 @@
+﻿@model List<AfghanWheelzz.Models.Wishlist>
+
+@{
+    ViewData["Title"] = "Wishlist";
+}
+
+<h1>Wishlist</h1>
+
+@if (Model.Count == 0)
+{
+    <p>Your wishlist is empty.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card custom-card">
+                    <img src="~/@item.Car.ImagePath" class="card-img-top" alt="Car Image">
+                    <div class="card-body">
+                        <h5 class="card-title">@($"{item.Car.Make} {item.Car.Model}")</h5>
+                        <p class="card-text">
+                            <strong>Year:</strong> @item.Car.Year <br />
+                            <strong>Price:</strong> $@item.Car.Price <br />
+                            <strong>Mileage:</strong> @($"{item.Car.Mileage} miles") <br />
+                        </p>
+                        <p class="card-text">@item.Car.description</p>
+                        <!-- Add other details as needed -->
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

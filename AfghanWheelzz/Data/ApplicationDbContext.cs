@@ -13,6 +13,7 @@ namespace AfghanWheelzz.Data
         public DbSet<Category> Categories { get; set; }
         public DbSet<Registration> Registrations { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<Wishlist> Wishlists { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -48,6 +49,12 @@ namespace AfghanWheelzz.Data
                    .WithMany(u => u.Cars)
                    .HasForeignKey(c => c.LocationId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+       
+   
+
+    
+
         }
 
         private void SeedInitialData(ModelBuilder modelBuilder)

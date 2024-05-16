@@ -93,7 +93,8 @@ app.MapGet("/", async context =>
         var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
         var user = await userManager.FindByEmailAsync("nawab.safi61@gmail.com");
-        if (user != null)
+        var user1 = await userManager.FindByEmailAsync("Sulaiman@gmail.com");
+        if (user !=null || user1!= null)
         {
             //Check if Admin Role exist 
             var adminRoleExists = await roleManager.RoleExistsAsync("Admin");
@@ -104,6 +105,7 @@ app.MapGet("/", async context =>
             }
             //Add Selected User to Admin
             await userManager.AddToRoleAsync(user, "Admin");
+            await userManager.AddToRoleAsync(user1, "Admin");
 
 
             // Redirect the response before any content is written

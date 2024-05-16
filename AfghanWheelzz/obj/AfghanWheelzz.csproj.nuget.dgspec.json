@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj": {}
+    "C:\\Users\\Safi\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj": {
+    "C:\\Users\\Safi\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
+        "projectUniqueName": "C:\\Users\\Safi\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
         "projectName": "AfghanWheelzz",
-        "projectPath": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
+        "projectPath": "C:\\Users\\Safi\\repos\\AfghanWheelzz\\AfghanWheelzz\\AfghanWheelzz.csproj",
         "packagesPath": "C:\\Users\\Safi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Safi\\source\\repos\\AfghanWheelzz\\AfghanWheelzz\\obj\\",
+        "outputPath": "C:\\Users\\Safi\\repos\\AfghanWheelzz\\AfghanWheelzz\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Safi\\AppData\\Roaming\\NuGet\\NuGet.Config",

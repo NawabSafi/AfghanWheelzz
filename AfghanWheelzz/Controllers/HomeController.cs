@@ -5,9 +5,11 @@ using AfghanWheelzz.Repository;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Claims;
 
 namespace AfghanWheelzz.Controllers
 {
@@ -29,30 +31,100 @@ namespace AfghanWheelzz.Controllers
             _carRepository = carRepository;
 
         }
-/*
-        [AllowAnonymous]
-        [HttpGet]
-        public async Task<IActionResult> GetSellerDetails(int carId)
+
+
+
+        [Authorize] // Restrict to authenticated users
+        public async Task<IActionResult> AddToWishlist(int carId)
         {
-            var car = await _carRepository.GetCarByIdAsync(carId);
-
-            if (car == null || car.UserId == null)
+            var car = await _context.Cars.FindAsync(carId);
+            if (car == null)
             {
-                return NotFound(); // Handle the case where car or seller is not found
+                return NotFound();
             }
 
-            var user = await _userManager.FindByIdAsync(car.UserId);
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
-            if (user == null)
+            // Check if the car is already in the wishlist
+            var existingWishlistItem = await _context.Wishlists.FirstOrDefaultAsync(w => w.UserId == userId && w.CarId == carId);
+            if (existingWishlistItem != null)
             {
-                return NotFound(); // Handle the case where user is not found
+                // Car already in wishlist
+                TempData["Message"] = "Car is already in the wishlist.";
+                return RedirectToAction("Details", new { id = carId }); // Pass carId to stay in Details view
             }
 
-            // Return user details as JSON
-            return Json(new { Name = $"{user.FirstName} {user.LastName}", user.Email, user.PhoneNumber });
+            var wishlistItem = new Wishlist
+            {
+                UserId = userId,
+                CarId = carId
+            };
+            _context.Wishlists.Add(wishlistItem);
+            await _context.SaveChangesAsync();
+
+            TempData["Message"] = "Car added to wishlist.";
+            return RedirectToAction("Details", new { id = carId });  // Pass carId to stay in Details view
         }
-*/
-     
+
+        [Authorize] // Restrict to authenticated users
+        public async Task<IActionResult> RemoveFromWishlist(int carId)
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            // Find the wishlist item to remove
+            var wishlistItem = await _context.Wishlists.FirstOrDefaultAsync(w => w.UserId == userId && w.CarId == carId);
+            if (wishlistItem == null)
+            {
+                TempData["Message"] = "Car is not in the wishlist.";
+                return RedirectToAction("Details", new { id = carId }); // Pass carId to stay in Details view
+            }
+            _context.Wishlists.Remove(wishlistItem);
+            await _context.SaveChangesAsync();
+
+            TempData["Message"] = "Car removed from wishlist.";
+            return RedirectToAction("Details", new { id = carId }); // Pass carId to stay in Details view
+        }
+
+
+        [Authorize]
+        public async Task<IActionResult> Wishlist()
+        {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var wishlistItems = await _context.Wishlists
+                .Include(w => w.Car)
+                .Where(w => w.UserId == userId)
+                .ToListAsync();
+
+            return View(wishlistItems);
+        }
+
+
+
+
+        /*
+                [AllowAnonymous]
+                [HttpGet]
+                public async Task<IActionResult> GetSellerDetails(int carId)
+                {
+                    var car = await _carRepository.GetCarByIdAsync(carId);
+
+                    if (car == null || car.UserId == null)
+                    {
+                        return NotFound(); // Handle the case where car or seller is not found
+                    }
+
+                    var user = await _userManager.FindByIdAsync(car.UserId);
+
+                    if (user == null)
+                    {
+                        return NotFound(); // Handle the case where user is not found
+                    }
+
+                    // Return user details as JSON
+                    return Json(new { Name = $"{user.FirstName} {user.LastName}", user.Email, user.PhoneNumber });
+                }
+        */
+
         public async Task<IActionResult> Details(int id)
         {
             var car = await _carRepository.GetCarByIdAsync(id);

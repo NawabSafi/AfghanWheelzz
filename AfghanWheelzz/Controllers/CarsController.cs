@@ -3,6 +3,7 @@ using AfghanWheelzz.Models;
 using AfghanWheelzz.Models.UserModels;
 using AfghanWheelzz.Repository;
 using AfghanWheelzz.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -47,7 +48,7 @@ namespace AfghanWheelzz.Controllers
 
             return View(cars);
         }
-        public async Task<IActionResult> Index(string searchTerm, string make, string category, string minPrice, string maxPrice, int pageNumber = 1, int pageSize = 9)
+        public async Task<IActionResult> Index(string searchTerm, string make, string city, string category, string minPrice, string maxPrice, int pageNumber = 1, int pageSize = 9)
         {
             // Get total count of cars
             var totalCount = _context.Cars.Count();
@@ -64,17 +65,16 @@ namespace AfghanWheelzz.Controllers
                 );
             }
 
-
+            // Apply filtering based on make if provided
             if (!string.IsNullOrEmpty(make))
             {
                 cars = cars.Where(car => car.Make.ToLower() == make.ToLower());
             }
 
-
-            // Apply filtering based on make if provided
-            if (!string.IsNullOrEmpty(make))
+            // Apply filtering based on city if provided
+            if (!string.IsNullOrEmpty(city))
             {
-                cars = cars.Where(car => car.Make.ToLower() == make.ToLower());
+                cars = cars.Where(car => car.Location.City.ToLower() == city.ToLower());
             }
 
             // Apply filtering based on category if provided
@@ -125,35 +125,8 @@ namespace AfghanWheelzz.Controllers
             return View(pagedCars);
         }
 
-        /*  [HttpPost]
-          public async Task<IActionResult> SearchCars(string searchTerm)
-          {
-              // Get all cars from the repository
-              var allCars = await _carRepository.GetAllCarsAsync();
 
-              // Filter the cars based on the search term
-              if (!string.IsNullOrEmpty(searchTerm))
-              {
-                  allCars = allCars.Where(car =>
-                      car.Make.ToLower().Contains(searchTerm.ToLower()) ||
-                      car.Model.ToLower().Contains(searchTerm.ToLower()) ||
-                      car.Description.ToLower().Contains(searchTerm.ToLower())
-                  ).ToList(); // Explicitly convert to List<CarViewModel>
-              }
 
-              // Return the filtered list of cars if searchTerm is not empty,
-              // otherwise return all cars
-              if (!string.IsNullOrEmpty(searchTerm))
-              {
-                  return View("Index", allCars);
-              }
-              else
-              {
-                  // Return all cars if searchTerm is empty
-                  return RedirectToAction("Index");
-              }
-          }
-  */
         public IActionResult Create()
         {
             return View();

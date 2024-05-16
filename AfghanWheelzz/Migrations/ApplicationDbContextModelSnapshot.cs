@@ -43,19 +43,15 @@ namespace AfghanWheelzz.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Make")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Mileage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Model")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Price")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("RegistrationId")
@@ -65,11 +61,9 @@ namespace AfghanWheelzz.Migrations
                         .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Year")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("description")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -94,7 +88,6 @@ namespace AfghanWheelzz.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CategoryName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -128,7 +121,6 @@ namespace AfghanWheelzz.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("City")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -162,7 +154,6 @@ namespace AfghanWheelzz.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("RegistrationName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -268,6 +259,29 @@ namespace AfghanWheelzz.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("AfghanWheelzz.Models.Wishlist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CarId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Wishlists");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -293,26 +307,6 @@ namespace AfghanWheelzz.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "1a449d13-d599-4545-8711-197906c1e999",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "1b81092f-fe66-4ec1-bd02-73df51ad416e",
-                            Name = "Finance",
-                            NormalizedName = "FINANCE"
-                        },
-                        new
-                        {
-                            Id = "54145be1-7a88-4ad5-9983-bfaa2c963ec4",
-                            Name = "Marketing",
-                            NormalizedName = "MARKETING"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -452,6 +446,23 @@ namespace AfghanWheelzz.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("AfghanWheelzz.Models.Wishlist", b =>
+                {
+                    b.HasOne("AfghanWheelzz.Models.Car", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("AfghanWheelzz.Models.UserModels.ApplicationUser", "User")
+                        .WithMany("Wishlists")
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Car");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -521,6 +532,8 @@ namespace AfghanWheelzz.Migrations
             modelBuilder.Entity("AfghanWheelzz.Models.UserModels.ApplicationUser", b =>
                 {
                     b.Navigation("Cars");
+
+                    b.Navigation("Wishlists");
                 });
 #pragma warning restore 612, 618
         }

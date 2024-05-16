@@ -2,6 +2,39 @@
     ViewData["Title"] = "Detail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<!-- Include jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Include Toastr CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var message = '@TempData["Message"]';
+        if (message !== '') {
+            // Ensure Toastr is fully initialized
+            if (typeof toastr !== 'undefined' && $.isFunction(toastr.success)) {
+                toastr.success(message, 'Success');
+            } else {
+                // If Toastr is not ready, wait for it to be initialized
+                $(document).ajaxComplete(function () {
+                    if (typeof toastr !== 'undefined' && $.isFunction(toastr.success)) {
+                        toastr.success(message, 'Success');
+                    }
+                });
+            }
+        }
+    });
+
+    function confirmLogin() {
+        var confirmed = confirm("Login to see the phone number?");
+        if (confirmed) {
+            window.location.href = "/Account/Login";
+        }
+    }
+</script>
+
 <div class="container">
     <h1 class="text-center text-white mb-4">Car Details</h1>
 
@@ -18,8 +51,6 @@
                     <h4 class="text-primary">@Model.Make | @Model.Model | @ViewBag.Location.City  <i class="fas fa-map-marker-alt mr-2"></i></h4>
                     <hr class="my-4">
                     <dl class="row">
-                      
-
                         <dt class="col-sm-4"><i class="far fa-calendar-alt mr-2"></i>Published Date</dt>
                         <dd class="col-sm-8">@Model.DatePublished</dd>
 
@@ -32,20 +63,32 @@
                         <dt class="col-sm-4"><i class="fas fa-calendar-alt mr-2"></i>Year</dt>
                         <dd class="col-sm-8">@Model.Year</dd>
 
-                        <dt class="col-sm-4"><i class="fas  mr-2"></i>Price</dt>
+                        <dt class="col-sm-4"><i class="fas mr-2"></i>Price</dt>
                         <dd class="col-sm-8">@Model.Price (AFN)</dd>
 
-                        <dt class="col-sm-4"><i class="fas  mr-2"></i>Price in USD</dt>
+                        <dt class="col-sm-4"><i class="fas mr-2"></i>Price in USD</dt>
                         <dd class="col-sm-8">@ViewBag.CarPriceInUSD $</dd>
+
                         <dt class="col-sm-4"><i class="fas fa-road mr-2"></i>Mileage</dt>
                         <dd class="col-sm-8">@Model.Mileage (MPG)</dd>
 
                         <dt class="col-sm-4"><i class="fas fa-align-left mr-2"></i>Description</dt>
                         <dd class="col-sm-8">@Model.Description</dd>
                     </dl>
+
+                    <!-- Add to Wishlist button -->
+                    <form asp-controller="Home" asp-action="AddToWishlist" method="post">
+                        <input type="hidden" name="carId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-primary">Add to Wishlist</button>
+                    </form>
+
+                    <!-- Remove from Wishlist button -->
+                    <form asp-controller="Home" asp-action="RemoveFromWishlist" method="post">
+                        <input type="hidden" name="carId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-danger">Remove from Wishlist</button>
+                    </form>
                 </div>
-           
-        </div>
+            </div>
         </div>
     </div>
 
@@ -95,10 +138,37 @@
 </div>
 
 <script>
-    function confirmLogin() {
-        var confirmed = confirm("Login to see the phone number?");
-        if (confirmed) {
-            window.location.href = "/Account/Login";
+
+    To ensure the Toastr message is displayed only once, you can check if it has been already displayed before showing it again.Here's the updated code:
+
+    html
+    Copy code
+        <script>
+    var toastrDisplayed = false; // Flag to track if Toastr has been displayed
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var message = '@TempData["Message"]';
+        if (message !== '' && !toastrDisplayed) {
+            // Ensure Toastr is fully initialized
+            if (typeof toastr !== 'undefined' && $.isFunction(toastr.success)) {
+                toastr.success(message, 'Success');
+                toastrDisplayed = true; // Set flag to true when Toastr is displayed
+            } else {
+                // If Toastr is not ready, wait for it to be initialized
+                $(document).ajaxComplete(function () {
+                    if (!toastrDisplayed && typeof toastr !== 'undefined' && $.isFunction(toastr.success)) {
+                        toastr.success(message, 'Success');
+                        toastrDisplayed = true; // Set flag to true when Toastr is displayed
+                    }
+                });
+            }
         }
-    }
+    });
+
+        function confirmLogin() {
+            var confirmed = confirm("Login to see the phone number?");
+            if (confirmed) {
+                window.location.href = "/Account/Login";
+            }
+        }
 </script>
